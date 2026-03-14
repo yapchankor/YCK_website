@@ -1,18 +1,39 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import { Montserrat, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "../globals.css";
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const bandaRegular = localFont({
+  src: "../fonts/Banda.ttf",
+  variable: "--font-banda",
+  weight: "400",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
+const gotham = localFont({
+  src: [
+    {
+      path: "../fonts/Gotham-Light.otf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Gotham-Book.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Gotham-Medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Gotham-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-gotham",
 });
 
 export const metadata: Metadata = {
@@ -33,7 +54,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${montserrat.variable} ${inter.variable} font-sans antialiased`}
+        className={`${bandaRegular.variable} ${gotham.variable} font-sans antialiased`}
       >
         <NextIntlClientProvider messages={messages} locale={locale}>
           {children}

@@ -12,9 +12,9 @@
   --color-brand-gold-dark: #b39162;
   --color-brand-bg: #fdfaf5;
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-montserrat), ui-serif, Georgia, serif;
-  --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-banda), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-gotham), ui-serif, Georgia, serif;
+  --font-heading: var(--font-gotham), ui-sans-serif, system-ui, sans-serif;
 
   /* Premium Shadows */
   --shadow-clinical: 0 4px 20px -5px rgba(1, 102, 94, 0.05), 0 2px 10px -5px rgba(1, 102, 94, 0.05);
