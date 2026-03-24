@@ -52,7 +52,7 @@ export function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center relative z-50">
           <img 
-            src="/images/logo/logo no back with dots.png" 
+            src="/images/painfix_cream-removebg-preview.png" 
             alt="YAPCHANKOR" 
             className="h-12 w-auto object-contain transition-transform hover:scale-[1.03]"
           />

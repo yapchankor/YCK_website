@@ -27,7 +27,7 @@ export function Branches() {
       hours: t("okr.hoursLines"),
       wazeUrl: t("okr.wazeUrl"),
       googleMapsUrl: t("okr.googleMapsUrl"),
-      image: "/images/okr.png" 
+      image: "/images/OKR YCK  Interior.png" 
     },
     { 
       id: "shahAlam", 
