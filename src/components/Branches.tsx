@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+import { Link } from "@/i18n/routing";
 import { Button } from "./ui/button";
 import { MapPin, Phone, Clock, ArrowRight, ChevronRight } from "lucide-react";
 
@@ -79,6 +80,7 @@ export function Branches() {
           {branches.map((branch, index) => (
             <BranchCard 
               key={branch.id}
+              id={branch.id}
               name={branch.name}
               address={branch.address}
               phone={branch.phone}
@@ -98,7 +100,7 @@ export function Branches() {
   );
 }
 
-function BranchCard({ name, address, phone, hours, wazeUrl, googleMapsUrl, image, index, ctaView, ctaBook, ctaDirections }: { name: string; address: string; phone: string; hours: string; wazeUrl: string; googleMapsUrl: string; image: string; index: number; ctaView: string; ctaBook: string; ctaDirections: string }) {
+function BranchCard({ id, name, address, phone, hours, wazeUrl, googleMapsUrl, image, index, ctaView, ctaBook, ctaDirections }: { id: string; name: string; address: string; phone: string; hours: string; wazeUrl: string; googleMapsUrl: string; image: string; index: number; ctaView: string; ctaBook: string; ctaDirections: string }) {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -160,10 +162,13 @@ function BranchCard({ name, address, phone, hours, wazeUrl, googleMapsUrl, image
           >
             {ctaBook}
           </Button>
-          <button className="w-full py-2 text-[10px] uppercase tracking-widest font-bold flex items-center justify-center space-x-2 text-white/30 hover:text-white transition-colors">
+          <Link 
+            href={`/locations/${id}`}
+            className="w-full py-2 text-[10px] uppercase tracking-widest font-bold flex items-center justify-center space-x-2 text-white/30 hover:text-white transition-colors"
+          >
             <span>{ctaView}</span>
             <ArrowRight className="w-3 h-3" />
-          </button>
+          </Link>
         </div>
       </div>
     </motion.div>
