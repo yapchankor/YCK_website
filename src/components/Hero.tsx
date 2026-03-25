@@ -32,8 +32,8 @@ export function Hero() {
           alt="Physiotherapy treatment"
           className="w-full h-full object-cover transition-transform duration-1000 scale-[1.02] group-hover:scale-105"
         />
-        {/* Darkened overlay for better text readability */}
-        <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/30 to-black/60" />
+        {/* Darkened overlay for better text readability - Increased opacity */}
+        <div className="absolute inset-0 bg-linear-to-b from-black/85 via-black/50 to-black/80" />
       </div>
 
       <div className="container mx-auto px-6 z-10 text-center">

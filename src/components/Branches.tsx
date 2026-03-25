@@ -33,7 +33,7 @@ export function Branches() {
       hours: t("okr.hoursLines"),
       wazeUrl: t("okr.wazeUrl"),
       googleMapsUrl: t("okr.googleMapsUrl"),
-      image: "/images/okr.png",
+      image: "/images/OKR YCK  Interior.png",
       geo: { lat: 3.0983, lng: 101.6735 }
     },
     { 
