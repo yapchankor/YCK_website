@@ -28,7 +28,7 @@ export function Hero() {
       {/* Background Layer with Cinematic Image */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/images/yck_home_hero.webp" 
+          src="/images/yck_home_hero.png" 
           alt="Physiotherapy treatment"
           className="w-full h-full object-cover transition-transform duration-1000 scale-[1.02] group-hover:scale-105"
         />

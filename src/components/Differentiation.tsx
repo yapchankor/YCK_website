@@ -69,7 +69,7 @@ export function Differentiation() {
               className="relative aspect-4/5 rounded-3xl overflow-hidden shadow-clinical"
             >
               <img 
-                src="/images/differentiation_rehab.webp" 
+                src="/images/differentiation_rehab.png" 
                 alt="Structured Rehabilitation at YAPCHANKOR" 
                 className="w-full h-full object-cover px-8 py-2"
               />

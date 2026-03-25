@@ -107,7 +107,7 @@ export default function MethodPage() {
               >
                 <div className="relative aspect-3/4 max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl border-8 border-white group">
                   <img 
-                    src="/images/about-history.webp" 
+                    src="/images/about-history.jpg" 
                     className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
                     alt="Who We Are - Portrait"
                   />
@@ -189,13 +189,13 @@ export default function MethodPage() {
               <WhyReason 
                 title="Scientific Rigor"
                 desc={t("whyItWorks.science")}
-                image="/images/yck-about-who-768x361.webp"
+                image="/images/yck-about-who-768x361.jpg"
                 reverse={false}
               />
               <WhyReason 
                 title="Objective Results"
                 desc={t("whyItWorks.evidence")}
-                image="/images/yck-about.webp"
+                image="/images/yck-about.png"
                 reverse={true}
               />
               <motion.div 
