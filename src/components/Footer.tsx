@@ -70,22 +70,19 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Newsletter */}
           <div className="lg:col-span-3">
             <h4 className="text-[10px] uppercase tracking-[0.2em] font-bold mb-8 text-brand-gold/80">{t("newsletterTitle")}</h4>
-            <div className="relative mb-6">
-              <input 
-                type="email" 
-                id="footer-newsletter-email"
-                name="email"
-                placeholder={t("newsletterPlaceholder")}
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-xs focus:outline-hidden focus:border-brand-gold/50 transition-colors placeholder:text-white/20"
-                suppressHydrationWarning
-              />
-              <button className="absolute right-2 top-2 bottom-2 bg-brand-gold text-brand-teal-deep px-4 rounded-lg hover:bg-brand-gold-dark hover:scale-[1.02] active:scale-[0.98] transition-all">
+            <a 
+              href="https://yckpainclinic.substack.com/subscribe?next=https%3A%2F%2Fsubstack.com%2F%40yapchankor&utm_source=profile-page&utm_medium=web&utm_campaign=substack_profile&just_signed_up=true"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative mb-6 block w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-xs text-white/20 hover:border-brand-gold/50 transition-all group overflow-hidden"
+            >
+              <span className="font-medium">{t("newsletterPlaceholder")}</span>
+              <div className="absolute right-2 top-2 bottom-2 bg-brand-gold text-brand-teal-deep px-4 rounded-lg group-hover:bg-brand-gold-dark group-hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center">
                 <ArrowRight size={16} />
-              </button>
-            </div>
+              </div>
+            </a>
             <p className="text-[10px] text-white/20 uppercase tracking-[0.15em] font-bold leading-relaxed">
               Join 5,000+ subscribers for clinical health insights.
             </p>
