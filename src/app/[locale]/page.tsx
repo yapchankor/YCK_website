@@ -18,7 +18,11 @@ export const metadata: Metadata = {
   description: "Experience the unique Shaolin heritage method for chronic pain resolution. We treat back pain, knee osteoarthritis, frozen shoulder, and more since 1979.",
 };
 
-export default function Home() {
+import { getInsights } from "@/lib/substack";
+
+export default async function Home() {
+  const insights = await getInsights();
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -30,7 +34,7 @@ export default function Home() {
         <ScientificProof />
         <Compatibility />
         <ClinicalResults />
-        <Insights />
+        <Insights latestInsights={insights.slice(0, 3)} />
         <Branches />
         <FAQ />
         <FinalCTA />
