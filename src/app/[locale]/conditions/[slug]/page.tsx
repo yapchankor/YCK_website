@@ -85,13 +85,13 @@ export default async function ConditionDetail({
           <div className="container mx-auto px-6 relative z-10">
             <Link href="/conditions" className="inline-flex items-center space-x-2 text-brand-gold hover:text-white transition-colors mb-8 group">
               <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-              <span className="text-xs font-bold uppercase tracking-widest">All Conditions</span>
+              <span className="text-xs font-bold uppercase tracking-widest">{t("allConditions")}</span>
             </Link>
             
             <div className="max-w-4xl">
               <div className="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full border border-brand-gold/30 bg-brand-gold/10 text-brand-gold text-xs font-bold uppercase tracking-widest mb-6">
                 <Activity className="w-4 h-4" />
-                <span>Targeted Recovery</span>
+                <span>{t("targetedRecovery")}</span>
               </div>
               <h1 className="text-4xl lg:text-7xl font-black mb-8 tracking-tight drop-shadow-lg">
                 {title}
@@ -119,7 +119,7 @@ export default async function ConditionDetail({
               
               <div className="lg:col-span-8">
                 <h2 className="text-3xl lg:text-5xl font-bold text-brand-teal-deep mb-12 tracking-tight">
-                  Clinical Approach to <span className="text-brand-gold">{title}</span>
+                  {t("clinicalApproach")} <span className="text-brand-gold">{title}</span>
                 </h2>
                 
                 <div className="space-y-12">
@@ -130,7 +130,7 @@ export default async function ConditionDetail({
                     <div>
                       <h3 className="text-2xl font-bold text-brand-teal-deep mb-4 flex items-center gap-3">
                         <span className="sm:hidden text-brand-teal">1.</span>
-                        Assess & Diagnose
+                        {t("assessDiagnose")}
                       </h3>
                       <p className="text-lg font-medium text-brand-teal-deep/70 leading-relaxed">
                         {t(`list.${slug}.step1`)}
@@ -147,7 +147,7 @@ export default async function ConditionDetail({
                     <div>
                       <h3 className="text-2xl font-bold text-brand-teal-deep mb-4 flex items-center gap-3">
                         <span className="sm:hidden text-brand-teal">2.</span>
-                        Integrative Therapy
+                        {t("integrativeTherapy")}
                       </h3>
                       <p className="text-lg font-medium text-brand-teal-deep/70 leading-relaxed">
                         {t(`list.${slug}.step2`)}
@@ -164,7 +164,7 @@ export default async function ConditionDetail({
                     <div>
                       <h3 className="text-2xl font-bold text-brand-teal-deep mb-4 flex items-center gap-3">
                         <span className="sm:hidden text-brand-teal">3.</span>
-                        Results & Regimen
+                        {t("resultsRegimen")}
                       </h3>
                       <p className="text-lg font-medium text-brand-teal-deep/70 leading-relaxed">
                         {t(`list.${slug}.step3`)}
@@ -177,15 +177,15 @@ export default async function ConditionDetail({
               
               <aside className="lg:col-span-4 bg-brand-bg p-10 lg:p-14 rounded-[3rem] border border-brand-teal/10 shadow-xl sticky top-24 mt-12 lg:mt-0">
                 <ShieldCheck className="w-12 h-12 text-brand-gold mb-6" />
-                <h3 className="text-2xl font-bold text-brand-teal-deep mb-4">Ready to cure your {title.toLowerCase()}?</h3>
-                <p className="text-brand-teal-deep/60 mb-10 font-medium">Book a certified clinical assessment with our physiotherapy specialists today.</p>
+                <h3 className="text-2xl font-bold text-brand-teal-deep mb-4">{t("readyCure")} {title.toLowerCase()}?</h3>
+                <p className="text-brand-teal-deep/60 mb-10 font-medium">{t("bookAssessment")}</p>
                 <Link href="/#branches">
                   <Button className="w-full bg-brand-teal hover:bg-brand-teal-deep text-white h-16 rounded-2xl text-base font-bold uppercase tracking-widest shadow-xl transition-transform hover:scale-[1.02]">
-                    Book Assessment
+                    {t("btnBook")}
                   </Button>
                 </Link>
                 <div className="mt-6 flex justify-center text-xs font-bold text-brand-teal-deep/30 uppercase tracking-widest">
-                  No Referral Required
+                  {t("noReferral")}
                 </div>
               </aside>
             </div>

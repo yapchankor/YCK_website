@@ -57,7 +57,7 @@ export default function ConditionsIndex() {
                     {t(`list.${slug}.desc`)}
                   </p>
                   <div className="flex items-center space-x-2 text-brand-teal font-bold uppercase tracking-widest text-xs mt-auto pt-6 border-t border-brand-teal/10 w-full">
-                    <span>View Treatment</span>
+                    <span>{t("viewTreatment")}</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
                   </div>
                 </Link>

@@ -243,6 +243,17 @@
   "Conditions": {
     "title": "Conditions We Treat",
     "subtitle": "Specialized chronic pain and musculoskeletal treatment plans tailored to your specific injury.",
+    "allConditions": "All Conditions",
+    "targetedRecovery": "Targeted Recovery",
+    "clinicalApproach": "Clinical Approach to",
+    "assessDiagnose": "Assess & Diagnose",
+    "integrativeTherapy": "Integrative Therapy",
+    "resultsRegimen": "Results & Regimen",
+    "readyCure": "Ready to cure your",
+    "bookAssessment": "Book a certified clinical assessment with our physiotherapy specialists today.",
+    "btnBook": "Book Assessment",
+    "noReferral": "No Referral Required",
+    "viewTreatment": "View Treatment",
     "list": {
       "back-pain": {
         "title": "Back Pain Therapy",
