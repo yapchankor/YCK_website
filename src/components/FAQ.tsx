@@ -30,7 +30,7 @@ export function FAQ() {
   };
 
   return (
-    <section className="bg-brand-bg py-16 lg:py-24">
+    <section id="faq" className="bg-brand-bg py-16 lg:py-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

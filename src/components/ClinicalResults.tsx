@@ -1,10 +1,14 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { Button } from "./ui/button";
+import { Link } from "@/i18n/routing";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export function ClinicalResults() {
   const t = useTranslations("ClinicalResults");
+  const tw = useTranslations("WhatsApp");
+  const whatsappUrl = getWhatsAppUrl(tw("defaultMessage"));
 
   const results = [
     {
@@ -12,18 +16,21 @@ export function ClinicalResults() {
       problem: t("kneeProblem"),
       result: t("kneeResult"),
       image: "/images/outcome_knee_poster.webp",
+      slug: "osteoarthritis-knee",
     },
     {
       title: t("backTitle"),
       problem: t("backProblem"),
       result: t("backResult"),
       image: "/images/outcome_back_poster.webp",
+      slug: "slipped-disc",
     },
     {
       title: t("shoulderTitle"),
       problem: t("shoulderProblem"),
       result: t("shoulderResult"),
       image: "/images/outcome_shoulder_poster.webp",
+      slug: "frozen-shoulder",
     },
   ];
 
@@ -46,9 +53,10 @@ export function ClinicalResults() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-12 lg:mb-24">
           {results.map((item, i) => (
-            <div
-              key={i}
-              className="group bg-brand-bg rounded-3xl overflow-hidden shadow-clinical flex flex-col h-full ring-1 ring-brand-teal/5 text-left"
+            <Link 
+              key={i} 
+              href={`/conditions/${item.slug}`}
+              className="group bg-brand-bg rounded-3xl overflow-hidden shadow-clinical flex flex-col h-full ring-1 ring-brand-teal/5 text-left transition-all hover:shadow-clinical-hover hover:-translate-y-1"
             >
               <div className="aspect-3/4 overflow-hidden relative bg-white p-4 flex items-center justify-center">
                 <Image 
@@ -61,7 +69,7 @@ export function ClinicalResults() {
                 <div className="absolute inset-0 bg-brand-teal-deep/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               </div>
               <div className="p-6 lg:p-10 flex flex-col grow">
-                <h3 className="text-lg lg:text-2xl font-bold text-brand-teal mb-4 leading-tight">
+                <h3 className="text-lg lg:text-2xl font-bold text-brand-teal mb-4 leading-tight group-hover:text-brand-gold transition-colors">
                   {item.title}
                 </h3>
                 <div className="space-y-4">
@@ -76,7 +84,7 @@ export function ClinicalResults() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
@@ -84,11 +92,14 @@ export function ClinicalResults() {
           className="text-center"
         >
           <Button 
+            asChild
             className="rounded-full px-12 h-14 lg:h-16 text-sm lg:text-lg uppercase tracking-widest font-bold shadow-xl hover:shadow-2xl transition-all duration-300"
             id="cta_clinical_results_assessment"
           >
-            {t("cta")}
-            <ChevronRight className="ml-2 w-5 h-5" />
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+              {t("cta")}
+              <ChevronRight className="ml-2 w-5 h-5" />
+            </a>
           </Button>
         </div>
       </div>

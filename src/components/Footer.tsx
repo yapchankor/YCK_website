@@ -2,9 +2,13 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { Facebook, Instagram, Youtube, ArrowRight } from "lucide-react";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export function Footer() {
   const t = useTranslations("Footer");
+  const tNav = useTranslations("Navigation");
+  const tWhatsApp = useTranslations("WhatsApp");
+  const tLegal = useTranslations("MethodPage.Legal");
 
   return (
     <footer className="bg-brand-teal-deep text-white pt-16 pb-12 border-t border-white/5 font-inter">
@@ -73,10 +77,10 @@ export function Footer() {
             <div>
               <h4 className="text-[10px] uppercase tracking-[0.2em] font-bold mb-8 text-brand-gold/80">{t("companyTitle")}</h4>
               <ul className="space-y-4 text-[13px] font-medium text-white/40">
-                <li><FooterLink href="#">Our Method</FooterLink></li>
-                <li><FooterLink href="#">About Us</FooterLink></li>
-                <li><FooterLink href="#">Clinical Science</FooterLink></li>
-                <li><FooterLink href="#">Careers</FooterLink></li>
+                <li><FooterLink href="/method">{tNav("method")}</FooterLink></li>
+                <li><FooterLink href="/insights">{tNav("insights")}</FooterLink></li>
+                <li><FooterLink href="/#faq">{tNav("faq")}</FooterLink></li>
+                <li><FooterLink href={getWhatsAppUrl(tWhatsApp("defaultMessage"))}>{tNav("bookAssessment")}</FooterLink></li>
               </ul>
             </div>
           </div>
@@ -106,9 +110,9 @@ export function Footer() {
             {t("copyright")}
           </div>
           <div className="flex space-x-10 text-[11px] font-medium text-white/30 tracking-wide">
-            <FooterLink href="#">Privacy Policy</FooterLink>
-            <FooterLink href="#">Terms of Service</FooterLink>
-            <FooterLink href="#">Legal Disclosure</FooterLink>
+            <FooterLink href="/privacy-policy">{tLegal("privacyPolicy")}</FooterLink>
+            <FooterLink href="/terms-of-service">{tLegal("termsOfService")}</FooterLink>
+            <FooterLink href="/legal-disclosure">{tLegal("legalDisclosure")}</FooterLink>
           </div>
         </div>
       </div>

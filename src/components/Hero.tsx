@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
@@ -54,11 +55,14 @@ export function Hero() {
                   </a>
                 </Button>
               <Button 
+                asChild
                 size="lg"
                 variant="outline"
                 className="border-white/40 text-white hover:bg-white/10 rounded-full px-12 h-14 lg:h-16 text-sm lg:text-lg uppercase tracking-widest font-bold backdrop-blur-md"
               >
-                {t("secondaryCTA")}
+                <Link href="/method">
+                  {t("secondaryCTA")}
+                </Link>
               </Button>
             </div>
           </div>
