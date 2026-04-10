@@ -43,10 +43,10 @@ export function ScientificProof() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
           {/* Left Content */}
           <div>
-            <h2 className="text-3xl lg:text-5xl font-bold text-brand-teal leading-tight mb-4 text-center lg:text-left">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-brand-teal leading-tight mb-4 text-center lg:text-left">
               {t("title")}
             </h2>
-            <p className="text-xl sm:text-2xl lg:text-3xl font-medium text-brand-gold uppercase tracking-[0.2em] mb-10 text-center lg:text-left">
+            <p className="text-lg md:text-2xl lg:text-3xl font-medium text-brand-gold uppercase tracking-[0.2em] mb-10 text-center lg:text-left">
               {t("heritage")}
             </p>
 

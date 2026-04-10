@@ -12,7 +12,7 @@ export function Method() {
             <div
               className="mb-16"
             >
-              <h2 className="text-4xl lg:text-6xl font-bold text-brand-teal mb-6 tracking-tight">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-brand-teal mb-6 tracking-tight">
                 {t("title")}
               </h2>
               <p className="text-xl text-brand-teal-deep/70 max-w-xl leading-relaxed font-medium">

@@ -13,7 +13,7 @@ export function ScientificValidation() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mb-20">
           <div>
-            <h2 className="text-4xl lg:text-6xl font-bold text-brand-teal mb-8 tracking-tight">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-brand-teal mb-8 tracking-tight">
               {t("headline")}
             </h2>
             <p className="text-xl text-brand-teal-deep/70 leading-relaxed font-medium">

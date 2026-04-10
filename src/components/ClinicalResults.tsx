@@ -40,7 +40,7 @@ export function ClinicalResults() {
         <div
           className="text-center max-w-3xl mx-auto mb-12 lg:mb-24">
           <h2 
-            className="text-2xl sm:text-3xl lg:text-5xl font-bold text-brand-teal mb-6"
+            className="text-2xl md:text-4xl lg:text-5xl font-bold text-brand-teal mb-6"
           >
             {t("title")}
           </h2>

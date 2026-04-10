@@ -17,11 +17,11 @@ export function Differentiation() {
           {/* Left Content */}
           <div className="lg:w-1/2">
             <div>
-              <h2 className="text-3xl lg:text-5xl font-bold text-brand-teal leading-tight mb-4">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-brand-teal leading-tight mb-4">
                 {t("title")}
               </h2>
               
-              <p className="text-xl sm:text-2xl lg:text-3xl font-medium text-brand-gold uppercase tracking-[0.2em] mb-10">
+              <p className="text-lg md:text-2xl lg:text-3xl font-medium text-brand-gold uppercase tracking-[0.2em] mb-10">
                 {t("heritage")}
               </p>
 
@@ -46,7 +46,7 @@ export function Differentiation() {
                     ))}
                   </ul>
                   
-                  <p className="text-xl lg:text-3xl font-bold text-brand-teal pt-8 tracking-tight border-t border-brand-teal/10">
+                  <p className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-teal pt-8 tracking-tight border-t border-brand-teal/10">
                     {t("conclusion")}
                   </p>
                 </div>

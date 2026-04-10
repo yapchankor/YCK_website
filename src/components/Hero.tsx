@@ -29,8 +29,8 @@ export function Hero() {
         <div className="absolute inset-0 bg-linear-to-b from-black/85 via-black/50 to-black/80" />
       </div>
 
-      <div className="container mx-auto px-6 z-10 text-center">
-        <div className="max-w-4xl mx-auto">
+      <div className="container mx-auto px-6 z-10 text-center sm:text-left">
+        <div className="max-w-4xl mx-auto sm:mx-0">
           <div>
             <h1 className="text-4xl sm:text-6xl lg:text-8xl font-bold leading-[1.05] text-white mb-6 tracking-tight drop-shadow-md">
               {t("title")}
@@ -40,11 +40,11 @@ export function Hero() {
               {t("heritageHeadline")}
             </p>
 
-            <p className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-16 lg:mb-20 leading-relaxed max-w-3xl mx-auto font-medium drop-shadow-lg">
+            <p className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-16 lg:mb-20 leading-relaxed max-w-3xl mx-auto sm:mx-0 font-medium drop-shadow-lg">
               {t("description1")}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16 lg:mb-20 text-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center sm:justify-start mb-16 lg:mb-20">
               <Button 
                   asChild
                   size="lg"

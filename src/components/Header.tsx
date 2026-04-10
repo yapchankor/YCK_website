@@ -53,17 +53,20 @@ export function Header() {
     )}>
       <div className={cn(
         "container mx-auto flex items-center justify-between px-6 transition-all duration-500",
-        isScrolled ? "h-16" : "h-20"
+        isScrolled ? "h-16" : "h-24 lg:h-28"
       )}>
         {/* Logo */}
         <Link href="/" className="flex items-center relative z-50">
           <Image 
             src="/images/painfix_cream-removebg-preview.png" 
             alt="YAPCHANKOR Clinic Logo" 
-            width={240}
-            height={64}
+            width={320}
+            height={90}
             priority
-            className="h-14 lg:h-16 w-auto object-contain transition-transform hover:scale-[1.03]"
+            className={cn(
+              "w-auto object-contain transition-all duration-500 hover:scale-[1.03]",
+              isScrolled ? "h-12 lg:h-14" : "h-18 lg:h-22"
+            )}
           />
         </Link>
 
