@@ -49,8 +49,8 @@ export function TestimonialGrid() {
         ))}
       </nav>
 
-      {/* Grid Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+      {/* Masonry Layout using CSS Columns */}
+      <div className="columns-1 md:columns-2 lg:columns-3 gap-8 lg:gap-12 [column-fill:_balance]">
         <AnimatePresence mode="popLayout">
           {filteredTestimonials.map((testimonial, idx) => (
             <motion.div
@@ -64,12 +64,7 @@ export function TestimonialGrid() {
                 delay: idx * 0.05,
                 ease: [0.16, 1, 0.3, 1] 
               }}
-              className={cn(
-                "h-full",
-                // Make top items span more columns for impact
-                activeCategory === "all" && idx < 1 && "md:col-span-2 lg:col-span-2",
-                idx % 7 === 0 && activeCategory !== "all" && "md:col-span-2 lg:col-span-2"
-              )}
+              className="break-inside-avoid-column mb-8 lg:mb-12"
             >
               <TestimonialCard 
                 testimonial={testimonial} 
