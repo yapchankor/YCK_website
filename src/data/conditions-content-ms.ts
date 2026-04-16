@@ -1,4 +1,7 @@
 export type ConditionContent = {
+  title?: string;
+  subtitle?: string;
+  intro?: string;
   whyNotImprove: string;
   whatCauses: string[];
   approach: string;
@@ -880,4 +883,106 @@ export const conditionsContentMs: Record<string, ConditionContent> = {
     ],
     relatedConditions: ["wrist-pain", "shoulder-pain"],
   },
+  "post-surgery": {
+    title: "Pemulihan Selepas Pembedahan dan Kecederaan di Malaysia",
+    subtitle: "Pemulihan Berstruktur untuk Mengembalikan Fungsi Selepas Kecederaan atau Pembedahan",
+    intro: "Pemulihan daripada kecederaan atau pembedahan tidak berakhir apabila prosedur atau rawatan awal selesai.\n\nRamai pesakit mendapati bahawa walaupun selepas rawatan perubatan, mereka terus mengalami kekakuan, kelemahan, pergerakan terhad, atau kesakitan berulang. Tanpa pemulihan yang betul, proses baik pulih mungkin kekal tidak lengkap.\n\nDi YAPCHANKOR, kami menyokong pesakit dalam fasa pemulihan — membantu memulihkan pergerakan, membina semula kekuatan, dan kembali kepada aktiviti biasa dengan pendekatan berstruktur dan bersepadu.",
+    whyNotImprove: "Selepas kecederaan atau pembedahan, tubuh melalui proses penyembuhan — tetapi penyembuhan sahaja tidak selalu memulihkan fungsi sepenuhnya.\n\nTanpa pemulihan berstruktur, faktor seperti pergerakan yang terhad, kelemahan otot, dan kekakuan boleh membawa kepada ketidakselesaan yang berpanjangan atau pemulihan yang tidak lengkap.",
+    whatCauses: [
+      "Pergerakan terhad pada sendi atau kawasan yang terjejas",
+      "Kelemahan otot akibat tidak digunakan",
+      "Tisu parut atau kekakuan yang mengehadkan pergerakan",
+      "Keradangan berpanjangan yang menjejaskan pemulihan",
+      "Takut untuk bergerak atau kecederaan semula"
+    ],
+    approach: "Pendekatan kami dibentuk oleh perubatan kecederaan Shaolin — tradisi yang dikembangkan melalui rawatan kecederaan sebenar — dan diperhalusi melalui lebih 45 tahun pengalaman klinikal. Di YAPCHANKOR, kami memberi tumpuan kepada menyokong pemulihan selepas fasa perubatan awal — memulihkan fungsi, pergerakan, dan kekuatan secara berstruktur.",
+    approachPoints: [
+      "Fisioterapi secara sentuhan langsung untuk meningkatkan pergerakan dan mengurangkan kekakuan",
+      "Pemulihan berstruktur untuk membina semula kekuatan dan koordinasi",
+      "Formulasi herba proprietari yang digunakan di klinik kami selama beberapa dekad pada lebih 50,000 pesakit, dan dikaji untuk sifat anti-radangnya melalui penyelidikan makmal"
+    ],
+    expectation: "Garis masa pemulihan berbeza-beza bergantung pada jenis kecederaan atau pembedahan, berapa lama prosedur itu berlaku, mobiliti asas anda, dan konsistensi dengan pemulihan. Fokus kami adalah untuk memulihkan fungsi dan membantu anda mendapatkan semula keyakinan dalam pergerakan dari masa ke masa.",
+    whenToSeek: [
+      "berasa kaku atau lemah selepas kecederaan atau pembedahan",
+      "tidak mendapat pergerakan penuh",
+      "mengalami ketidakselesaan berterusan selepas rawatan awal",
+      "mahu kembali dengan selamat kepada aktiviti biasa"
+    ],
+    faqs: [
+      { question: "Adakah saya memerlukan rujukan?", answer: "Tidak. Anda boleh membuat tempahan terus dengan kami — tiada rujukan doktor diperlukan." },
+      { question: "Bila saya harus mulakan pemulihan?", answer: "Ini bergantung pada keadaan anda dan nasihat perubatan. Kami boleh menilai dan membimbing anda berdasarkan tahap pemulihan anda." },
+      { question: "Bolehkah anda bekerjasama dengan doktor atau pakar bedah saya?", answer: "Ya. Peranan kami adalah untuk menyokong pemulihan anda bersama-sama dengan penjagaan perubatan sedia ada." },
+      { question: "Adakah ini sesuai selepas pembedahan?", answer: "Ya. Pemulihan selepas pembedahan adalah salah satu bidang utama yang kami sokong." },
+      { question: "Adakah anda mempunyai kemudahan X-ray atau MRI?", answer: "Kami tidak menyediakan pengimejan. Sila bawa sebarang laporan sedia ada jika ada." }
+    ],
+    relatedConditions: ["osteoarthritis-knee", "slipped-disc", "shoulder-pain"]
+  },
+  "chronic-pain": {
+    title: "Rawatan Kesakitan Kronik di Malaysia",
+    subtitle: "Apabila Kesakitan Terus Berulang, Pasti Ada Sebabnya",
+    intro: "Ramai yang datang kepada kami dengan pengalaman yang sama. Kesakitan reda seketika — selepas berehat, ubat, urutan, atau rawatan — tetapi kemudian ia kembali lagi.\n\nLama kelamaan, kitaran ini menjadi mengecewakan. Anda mula terfikir sama ada keadaan ini akan sembuh sepenuhnya.\n\nDi YAPCHANKOR, kami kerap melihat pesakit yang telah berhadapan dengan kesakitan selama berbulan-bulan atau bertahun-tahun. Dalam banyak kes ini, masalahnya bukanlah kerana kesakitan itu tidak boleh bertambah baik — tetapi ia belum ditangani dengan cara yang berstruktur.",
+    whyNotImprove: "Kesakitan tidak selalu disebabkan oleh satu masalah. Apabila hanya satu bahagian masalah yang dirawat — contohnya, mengurangkan kesakitan tanpa memulihkan pergerakan — keadaan mungkin bertambah baik buat sementara waktu tetapi kembali berulang.",
+    whatCauses: [
+      "keradangan tersembunyi yang belum sembuh sepenuhnya",
+      "pergerakan terhad atau kekakuan sendi",
+      "kelemahan atau ketidakseimbangan otot",
+      "ketegangan berulang dari aktiviti harian",
+      "pemulihan yang tidak lengkap daripada kecederaan lalu"
+    ],
+    approach: "Perubatan kecederaan Shaolin dibangunkan melalui rawatan kecederaan sebenar — bukan sekadar melegakan simptom, tetapi membantu tubuh memulihkan fungsi dari masa ke masa. Di YAPCHANKOR, kami menggunakan prinsip yang sama pada kesakitan kronik. Fokus kami bukan sekadar untuk mengurangkan ketidakselesaan, tetapi untuk menangani faktor-faktor yang menyebabkan kesakitan berulang.",
+    approachPoints: [
+      "Fisioterapi secara sentuhan langsung untuk memulihkan pergerakan dan mengurangkan ketegangan",
+      "Pemulihan berstruktur untuk membina semula kekuatan dan kestabilan",
+      "Formulasi herba proprietari yang digunakan di klinik kami selama beberapa dekad pada lebih 50,000 pesakit, dan dikaji untuk sifat anti-radangnya melalui penyelidikan makmal"
+    ],
+    expectation: "Kesakitan kronik berkembang dari masa ke masa, dan pemulihan juga memerlukan masa. Kemajuan mungkin tidak sentiasa segera, tetapi pendekatan berstruktur boleh membawa kepada peningkatan bermakna dalam fungsi dan keselesaan. Fokus kami adalah untuk membantu anda bergerak dengan lebih baik dan mengekalkan peningkatan tersebut.",
+    whenToSeek: [
+      "terus berulang selepas rawatan",
+      "telah berlarutan selama berminggu-minggu atau berbulan-bulan",
+      "menjejaskan kehidupan harian atau kerja anda",
+      "tidak sembuh sepenuhnya walaupun selepas berehat atau makan ubat"
+    ],
+    faqs: [
+      { question: "Adakah saya memerlukan rujukan?", answer: "Tidak. Anda boleh membuat tempahan terus dengan kami — tiada rujukan doktor diperlukan." },
+      { question: "Berapa lama kesakitan kronik mengambil masa untuk sembuh?", answer: "Ia bergantung pada berapa lama keadaan telah berlaku dan punca dasarnya. Pelan berstruktur dibincangkan selepas penilaian." },
+      { question: "Adakah ini sesuai jika saya telah mencuba rawatan lain?", answer: "Ya. Ramai pesakit datang kepada kami selepas mencuba pendekatan lain tanpa hasil yang berkekalan." },
+      { question: "Adakah kesakitan akan kembali?", answer: "Pendekatan kami memberi tumpuan kepada mengurangkan keadaan berulang dengan menangani faktor asas, bukan hanya simptom." },
+      { question: "Adakah anda mempunyai kemudahan X-ray atau MRI?", answer: "Kami tidak menyediakan pengimejan. Jika perlu, sila berunding dengan doktor perubatan sebelum melawat kami." }
+    ],
+    relatedConditions: ["back-pain", "knee-pain", "shoulder-pain", "sciatica"]
+  },
+  "sport-injury": {
+    title: "Rawatan Kecederaan Sukan di Malaysia",
+    subtitle: "Pulih Daripada Kecederaan dan Kembali Aktif dengan Pemulihan Berstruktur",
+    intro: "Kecederaan sukan boleh berlaku secara tiba-tiba — semasa perlawanan, larian, atau senaman biasa. Apa yang bermula sebagai ketegangan ringan boleh menjadi masalah jangka panjang jika tidak diuruskan dengan betul.\n\nBagi kebanyakan pesakit, cabarannya bukan sekadar pulih daripada kecederaan, tetapi kembali aktif tanpa rasa sakit berulang.\n\nDi YAPCHANKOR, kami kerap melihat pesakit yang telah mencuba rehat, fisioterapi asas, atau rawatan sendiri tetapi tidak dapat pulih sepenuhnya. Di sinilah pendekatan yang lebih berstruktur dan bersepadu boleh membawa perubahan.",
+    whyNotImprove: "Kecederaan sukan bukan sekadar mengenai kerosakan awal. Apabila masalah seperti penyembuhan tidak lengkap, keradangan berpanjangan, atau ketidakstabilan sendi tidak ditangani bersama, pesakit mungkin pulih separuh — dan kecederaan itu kembali apabila aktiviti disambung.",
+    whatCauses: [
+      "penyembuhan tidak lengkap pada ligamen atau tendon",
+      "keradangan berpanjangan yang menjejaskan pemulihan",
+      "pergerakan terhad atau ketidakstabilan sendi selepas kecederaan",
+      "kelemahan pada kumpulan otot di sekeliling",
+      "kembali semula ke aktiviti sebelum sembuh sepenuhnya"
+    ],
+    approach: "Pendekatan kami dibentuk oleh perubatan kecederaan Shaolin — tradisi yang dikembangkan melalui rawatan kecederaan sebenar — dan diperhalusi melalui lebih 45 tahun pengalaman klinikal. Di YAPCHANKOR, kami bukan sahaja menyembuhkan kecederaan, tetapi memulihkan fungsi dan kekuatan yang diperlukan untuk kembali aktif dengan selamat.",
+    approachPoints: [
+      "Fisioterapi secara sentuhan langsung untuk mengurangkan kesakitan dan meningkatkan mobiliti",
+      "Pemulihan berstruktur untuk membina semula kekuatan dan kestabilan sendi",
+      "Formulasi herba proprietari yang digunakan di klinik kami selama beberapa dekad pada lebih 50,000 pesakit, dan dikaji untuk sifat anti-radangnya melalui penyelidikan makmal"
+    ],
+    expectation: "Pemulihan bergantung kepada tahap keterukan kecederaan dan sejauh mana awal ia dirawat. Sesetengah kecederaan ringan sembuh dengan cepat, manakala kecederaan yang lebih kompleks atau berulang memerlukan tempoh pemulihan berstruktur yang lebih lama. Fokus kami adalah pada pemulihan penuh dan mengurangkan risiko kecederaan berulang.",
+    whenToSeek: [
+      "tidak bertambah baik selepas berehat",
+      "terus berulang apabila anda kembali aktif",
+      "menjejaskan prestasi atau pergerakan harian anda",
+      "terasa tidak stabil atau lemah"
+    ],
+    faqs: [
+      { question: "Adakah saya memerlukan rujukan?", answer: "Tidak. Anda boleh membuat tempahan terus dengan kami — tiada rujukan doktor diperlukan." },
+      { question: "Berapa cepat saya harus mendapatkan rawatan selepas kecederaan?", answer: "Penilaian awal boleh membantu menghalang kecederaan daripada menjadi lebih teruk atau berulang." },
+      { question: "Bolehkah saya terus bersenam semasa rawatan?", answer: "Ini bergantung pada kecederaan anda. Fisioterapis anda akan menasihatkan tahap aktiviti yang selamat." },
+      { question: "Adakah ini sesuai untuk kecederaan berulang?", answer: "Ya. Menangani punca utama kecederaan berulang merupakan bahagian penting dalam pendekatan kami." },
+      { question: "Adakah anda mempunyai kemudahan X-ray atau MRI?", answer: "Kami tidak menyediakan pengimejan. Jika perlu, sila berunding dengan doktor perubatan sebelum melawat kami." }
+    ],
+    relatedConditions: ["sprained-ankle", "knee-pain", "shoulder-pain", "elbow-pain"]
+  }
 } as const;

@@ -5,6 +5,9 @@ import { conditionsContentMs } from './conditions-content-ms';
 import { conditionsContentZh } from './conditions-content-zh';
 
 export type ConditionContent = {
+  title?: string;
+  subtitle?: string;
+  intro?: string;
   whyNotImprove: string;
   whatCauses: string[];
   approach: string;
@@ -26,7 +29,7 @@ const conditionsContentEn = {
   "back-pain": {
     title: "Back Pain Treatment In Malaysia",
     subtitle: "Structured Recovery for Chronic and Recurring Back Pain — Refined Over 45 Years",
-    intro: "Back pain often improves temporarily — but returns when underlying issues remain. If you've been living with it for weeks, months, or years, you may already have tried rest, medication, or other treatments without lasting improvement. At YAPCHANKOR, we regularly see patients in this situation — where the pain persists despite multiple attempts to treat it.",
+    intro: "Back pain often improves temporarily — but returns when underlying issues remain. If you've been living with it for weeks, months, or years, you may already have tried rest, medication, or other treatments without lasting improvement.\n\nAt YAPCHANKOR, we regularly see patients in this situation — where the pain persists despite multiple attempts to treat it.",
     whyNotImprove: "Back pain is rarely caused by a single issue. In many cases, it involves a combination of structural stress in the spine, movement limitations, and persistent inflammation. Treatments that focus on only one aspect — such as pain relief alone or exercise alone — may not fully resolve the condition. This is why many patients experience temporary relief, only for the pain to return.",
     whatCauses: [
       "Muscle and ligament strain from injury or overuse",
@@ -1000,6 +1003,108 @@ const conditionsContentEn = {
       "Keeps returning when you resume activity"
     ],
     relatedConditions: ["wrist-pain", "shoulder-pain"]
+  },
+  "post-surgery": {
+    title: "Post-Surgery and Post-Injury Rehabilitation in Malaysia",
+    subtitle: "Structured Recovery to Restore Function After Injury or Surgery",
+    intro: "Recovering from an injury or surgery does not end when the procedure or initial treatment is over.\n\nMany patients find that even after medical treatment, they continue to experience stiffness, weakness, limited mobility, or recurring pain. Without proper rehabilitation, recovery may remain incomplete.\n\nAt YAPCHANKOR, we support patients in the recovery phase — helping restore movement, rebuild strength, and return to normal activity with a structured, integrated approach.",
+    whyNotImprove: "After injury or surgery, the body goes through a healing process — but healing alone does not always restore full function.\n\nWithout structured rehabilitation, factors like reduced mobility, muscle weakness, and stiffness can lead to prolonged discomfort or incomplete recovery.",
+    whatCauses: [
+      "reduced mobility in the affected joint or area",
+      "muscle weakness from disuse",
+      "scar tissue or stiffness limiting movement",
+      "lingering inflammation affecting recovery",
+      "fear of movement or re-injury"
+    ],
+    approach: "Our approach is shaped by Shaolin injury medicine — a tradition developed through treating real injuries — and refined through over 45 years of clinical experience. At YAPCHANKOR, we focus on supporting recovery after the initial medical phase — restoring function, mobility, and strength in a structured way.",
+    approachPoints: [
+      "hands-on physiotherapy to improve movement and reduce stiffness",
+      "structured rehabilitation to rebuild strength and coordination",
+      "a proprietary herbal formulation used in our clinics for decades on over 50,000 patients, and studied for its anti-inflammatory properties through laboratory research conducted by our research partner, Relivium Sciences (maker of PainFix products)"
+    ],
+    expectation: "Recovery timelines vary depending on the type of injury or surgery, how long ago the procedure occurred, your baseline mobility, and consistency with rehabilitation. Our focus is on restoring function and helping you regain confidence in movement over time.",
+    whenToSeek: [
+      "feel stiff or weak after injury or surgery",
+      "are not regaining full movement",
+      "experience ongoing discomfort after initial treatment",
+      "want to return safely to normal activity"
+    ],
+    faqs: [
+      { question: "Do I need a referral?", answer: "No. You can book directly with us — no doctor’s referral is required." },
+      { question: "When should I start rehabilitation?", answer: "This depends on your condition and medical advice. We can assess and guide you based on your stage of recovery." },
+      { question: "Can you work together with my doctor or surgeon?", answer: "Yes. Our role is to support your recovery alongside your existing medical care." },
+      { question: "Is this suitable after surgery?", answer: "Yes. Post-surgical rehabilitation is one of the key areas we support." },
+      { question: "Do you have X-ray or MRI facilities?", answer: "We do not provide imaging. Please bring any existing reports if available." }
+    ],
+    relatedConditions: ["osteoarthritis-knee", "slipped-disc", "shoulder-pain"]
+  },
+  "chronic-pain": {
+    title: "Chronic Pain Treatment in Malaysia",
+    subtitle: "When Pain Keeps Coming Back, There Is Usually a Reason",
+    intro: "Many people come to us with the same experience. The pain improves for a while — after rest, medication, massage, or treatment — but then it comes back again.\n\nOver time, this cycle becomes frustrating. You start to wonder if the condition will ever fully resolve.\n\nAt YAPCHANKOR, we regularly see patients who have been dealing with pain for months or years. In many of these cases, the issue is not that the pain cannot improve — but that it has not been addressed in a structured way.",
+    whyNotImprove: "Pain is not always caused by a single problem. When only one part of the problem is treated — for example, reducing pain without restoring movement — the condition may improve temporarily but return over time.",
+    whatCauses: [
+      "underlying inflammation that has not fully resolved",
+      "restricted movement or joint stiffness",
+      "muscle weakness or imbalance",
+      "repeated strain from daily activities",
+      "incomplete recovery from past injuries"
+    ],
+    approach: "Shaolin injury medicine developed through treating real injuries — not just relieving symptoms, but helping the body recover function over time. At YAPCHANKOR, we apply this same principle to chronic pain. Our focus is not just to reduce discomfort, but to address the factors that cause pain to return.",
+    approachPoints: [
+      "hands-on physiotherapy to restore movement and reduce strain",
+      "structured rehabilitation to rebuild strength and stability",
+      "a proprietary herbal formulation used in our clinics for decades on over 50,000 patients, and studied for its anti-inflammatory properties through laboratory research conducted by our research partner, Relivium Sciences (maker of PainFix products)"
+    ],
+    expectation: "Chronic pain develops over time, and recovery also takes time. Progress may not always be immediate, but a structured approach can lead to meaningful improvement in function and comfort. Our focus is on helping you move better and maintain that improvement.",
+    whenToSeek: [
+      "keeps returning after treatment",
+      "has lasted for weeks or months",
+      "is affecting your daily life or work",
+      "does not fully resolve despite rest or medication"
+    ],
+    faqs: [
+      { question: "Do I need a referral?", answer: "No. You can book directly with us — no doctor’s referral is required." },
+      { question: "How long does chronic pain take to improve?", answer: "It depends on how long the condition has been present and the underlying causes. A structured plan is discussed after assessment." },
+      { question: "Is this suitable if I’ve tried other treatments?", answer: "Yes. Many patients come to us after trying other approaches without lasting results." },
+      { question: "Will the pain come back again?", answer: "Our approach focuses on reducing recurrence by addressing underlying factors, not just symptoms." },
+      { question: "Do you have X-ray or MRI facilities?", answer: "We do not provide imaging. If needed, please consult a medical doctor before visiting us." }
+    ],
+    relatedConditions: ["back-pain", "knee-pain", "shoulder-pain", "sciatica"]
+  },
+  "sport-injury": {
+    title: "Sports Injury Treatment in Malaysia",
+    subtitle: "Recover from Injuries and Return to Activity with Structured Rehabilitation",
+    intro: "Sports injuries can happen suddenly — during a game, a run, or even routine exercise. What starts as a minor strain or sprain can develop into a longer-term issue if not properly managed.\n\nFor many patients, the challenge is not just recovering from the injury, but returning to activity without the pain coming back.\n\nAt YAPCHANKOR, we regularly see patients who have tried rest, basic physiotherapy, or self-treatment but are unable to fully recover. This is where a more structured, integrated approach can make a difference.",
+    whyNotImprove: "Sports injuries are not just about the initial damage. When issues like incomplete healing, lingering inflammation, or joint instability are not addressed together, patients may recover partially — only for the injury to return when activity resumes.",
+    whatCauses: [
+      "incomplete healing of muscles, ligaments, or tendons",
+      "lingering inflammation affecting recovery",
+      "reduced mobility or joint stability after injury",
+      "weakness in surrounding muscle groups",
+      "returning to activity before full recovery"
+    ],
+    approach: "Our approach is shaped by Shaolin injury medicine — a tradition developed through treating real injuries — and refined through over 45 years of clinical experience. At YAPCHANKOR, we focus on not just healing the injury, but restoring the function and strength needed to return to activity safely.",
+    approachPoints: [
+      "hands-on physiotherapy to reduce pain and improve mobility",
+      "structured rehabilitation to rebuild strength and joint stability",
+      "a proprietary herbal formulation used in our clinics for decades on over 50,000 patients, and studied for its anti-inflammatory properties through laboratory research conducted by our research partner, Relivium Sciences (maker of PainFix products)"
+    ],
+    expectation: "Recovery depends on the severity of the injury and how early it is treated. Some minor injuries improve quickly, while more complex or recurring injuries require a longer period of structured rehabilitation. Our focus is on full recovery and reducing the risk of re-injury.",
+    whenToSeek: [
+      "is not improving after rest",
+      "keeps recurring when you return to activity",
+      "is affecting your performance or daily movement",
+      "feels unstable or weak"
+    ],
+    faqs: [
+      { question: "Do I need a referral?", answer: "No. You can book directly with us — no doctor’s referral is required." },
+      { question: "How soon should I seek treatment after an injury?", answer: "Early assessment can help prevent the injury from becoming more serious or recurring." },
+      { question: "Can I continue exercising during treatment?", answer: "This depends on your injury. Your physiotherapist will advise on safe activity levels." },
+      { question: "Is this suitable for recurring injuries?", answer: "Yes. Addressing the underlying causes of recurrence is a key part of our approach." },
+      { question: "Do you have X-ray or MRI facilities?", answer: "We do not provide imaging. If needed, please consult a medical doctor before visiting us." }
+    ],
+    relatedConditions: ["sprained-ankle", "knee-pain", "shoulder-pain", "elbow-pain"]
   }
 } as Record<string, ConditionContent>;
 

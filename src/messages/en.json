@@ -392,6 +392,18 @@
         "step1": "Your first visit begins with a physical assessment by our certified physiotherapists. We examine your elbow, forearm, and wrist, assess pain points, movement limitations, and how the condition is affecting your daily activities. If you have existing imaging, bring it along.",
         "step2": "Your treatment plan combines hands-on physiotherapy, guided rehabilitation, and our clinical herbal formulation. Specific techniques are selected based on your condition and stage of recovery.",
         "step3": "As your condition improves, we guide you through exercises to strengthen the forearm muscles and improve load tolerance. This is essential for preventing recurrence when you return to work or sports activities."
+      },
+      "post-surgery": {
+        "title": "Post-Surgery Rehabilitation",
+        "desc": "Recovering from an injury or surgery does not end when the procedure or initial treatment is over."
+      },
+      "chronic-pain": {
+        "title": "Chronic Pain Treatment",
+        "desc": "Many people come to us with the same experience. The pain improves for a while — after rest, medication, massage, or treatment — but then it comes back again."
+      },
+      "sport-injury": {
+        "title": "Sports Injury Treatment",
+        "desc": "Sports injuries can happen suddenly — during a game, a run, or even routine exercise. What starts as a minor strain or sprain can develop into a longer-term issue if not properly managed."
       }
     }
   },

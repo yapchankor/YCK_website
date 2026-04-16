@@ -394,6 +394,18 @@
         "step1": "Lawatan pertama anda bermula dengan penilaian fizikal oleh ahli fisioterapi kami yang bersertifikat. Kami memeriksa siku, lengan bawah, dan pergelangan tangan anda, menilai titik sakit, had pergerakan, dan bagaimana keadaan ini menjejaskan aktiviti harian anda. Jika anda mempunyai imbasan yang ada, bawakan bersama.",
         "step2": "Pelan rawatan anda menggabungkan fisioterapi langsung, pemulihan terpandu, dan formulasi herba klinikal kami. Teknik khusus dipilih berdasarkan keadaan dan peringkat pemulihan anda.",
         "step3": "Apabila keadaan anda meningkat, kami membimbing anda melalui senaman untuk menguatkan otot lengan bawah dan meningkatkan toleransi beban. Ini penting untuk mencegah terulang semula apabila anda kembali ke aktiviti kerja atau sukan."
+      },
+      "post-surgery": {
+        "title": "Pemulihan Selepas Pembedahan",
+        "desc": "Pemulihan daripada kecederaan atau pembedahan tidak berakhir apabila prosedur atau rawatan awal selesai."
+      },
+      "chronic-pain": {
+        "title": "Rawatan Kesakitan Kronik",
+        "desc": "Ramai yang datang kepada kami dengan pengalaman yang sama. Kesakitan reda seketika — selepas berehat, ubat, urutan, atau rawatan — tetapi kemudian ia kembali lagi."
+      },
+      "sport-injury": {
+        "title": "Rawatan Kecederaan Sukan",
+        "desc": "Kecederaan sukan boleh berlaku secara tiba-tiba — semasa perlawanan, larian, atau senaman biasa. Apa yang bermula sebagai ketegangan ringan boleh menjadi masalah jangka panjang jika tidak dijaga baik."
       }
     }
   },
