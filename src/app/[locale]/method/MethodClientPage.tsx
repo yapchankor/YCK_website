@@ -10,7 +10,13 @@ import { Link } from "@/i18n/routing";
 import { CheckCircle2, ArrowRight, ShieldCheck, Microscope, Activity } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
-export default function MethodPage() {
+export function MethodClientPage({
+  aboutTeamImageUrl,
+  aboutHistoryImageUrl
+}: {
+  aboutTeamImageUrl: string;
+  aboutHistoryImageUrl: string;
+}) {
   const t = useTranslations("MethodPage");
   const tw = useTranslations("WhatsApp");
   const whatsappUrl = getWhatsAppUrl(tw("defaultMessage"));
@@ -51,7 +57,7 @@ export default function MethodPage() {
       <Header />
       
       <main className="grow">
-        {/* Section 1: Standardized Hero */}
+        {/* Section 1: Full-width Hero */}
         <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-brand-teal-deep text-white">
           <div className="container mx-auto px-6 relative z-10 text-left">
             <motion.div
@@ -59,19 +65,15 @@ export default function MethodPage() {
               animate="visible"
               variants={revealVariants}
             >
-              <div className="max-w-4xl">
-                <div className="text-label inline-flex items-center space-x-3 px-4 py-1.5 rounded-full border border-brand-gold/30 bg-brand-gold/10 mb-6 uppercase text-brand-gold">
-                  <span>{t("hero.label") || "The Shaolin Method"}</span>
-                </div>
-                
-                <h1 className="text-display mb-8 uppercase">
-                  {t("hero.title")}
-                </h1>
-                
-                <p className="text-lead text-white max-w-2xl">
-                  {t("hero.subtitle")}
-                </p>
+              <div className="text-label inline-flex items-center space-x-3 px-4 py-1.5 rounded-full border border-brand-gold/30 bg-brand-gold/10 mb-6 text-brand-gold">
+                <span>{t("hero.label") || "The Shaolin Method"}</span>
               </div>
+              <h1 className="text-display mb-6 drop-shadow-lg text-left uppercase">
+                {t("hero.title")}
+              </h1>
+              <p className="text-body-lg text-white max-w-2xl text-left">
+                {t("hero.subtitle")}
+              </p>
             </motion.div>
           </div>
         </section>
@@ -165,10 +167,10 @@ export default function MethodPage() {
                 </div>
                 <div className="relative z-10 hidden lg:block">
                   <Image 
-                    src="/images/yck-about.webp" 
+                    src={aboutTeamImageUrl} 
                     width={400} 
                     height={500} 
-                    className="rounded-3xl shadow-2xl border-4 border-white/20"
+                    className="rounded-3xl shadow-2xl border-4 border-white/20 object-cover aspect-4/5"
                     alt="Clinical Practice"
                   />
                 </div>
@@ -264,7 +266,7 @@ export default function MethodPage() {
                   <div className="sticky top-32">
                     <div className="relative aspect-3/4 rounded-[2.5rem] overflow-hidden shadow-2xl group border-8 border-white">
                       <Image 
-                        src="/images/about-history.webp" 
+                        src={aboutHistoryImageUrl} 
                         className="object-cover transition-transform duration-1000 group-hover:scale-105"
                         fill
                         alt="Our Heritage"

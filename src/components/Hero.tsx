@@ -1,15 +1,22 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { client } from "@/sanity/lib/client";
+import { urlForImage } from "@/sanity/lib/image";
 
-export function Hero() {
-  const t = useTranslations("Hero");
-  const tb = useTranslations("TrustBar");
-  const tw = useTranslations("WhatsApp");
+export async function Hero() {
+  const t = await getTranslations("Hero");
+  const tb = await getTranslations("TrustBar");
+  const tw = await getTranslations("WhatsApp");
   const whatsappUrl = getWhatsAppUrl(tw("defaultMessage"));
+
+  const websiteImages = await client.fetch(`*[_type == "websiteImages"][0]`);
+  const heroImageSrc = websiteImages?.heroImage 
+    ? urlForImage(websiteImages.heroImage)?.url() 
+    : "/images/yck_home_hero.webp";
 
   return (
     <section 
@@ -18,12 +25,12 @@ export function Hero() {
       {/* Background Layer with Cinematic Image */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="/images/yck_home_hero.webp" 
+          src={heroImageSrc || "/images/yck_home_hero.webp"} 
           alt="Physiotherapy treatment"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[60%_center] md:object-center transition-transform duration-1000 scale-[1.02] group-hover:scale-105"
+          className="object-cover object-[center_top] md:object-[center_20%] transition-transform duration-1000 scale-[1.02] group-hover:scale-105"
         />
         {/* Darkened overlay for better text readability - Increased opacity */}
         <div className="absolute inset-0 bg-linear-to-b from-black/85 via-black/50 to-black/80" />

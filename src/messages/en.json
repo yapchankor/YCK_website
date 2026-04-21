@@ -258,6 +258,7 @@
     "newsletterSubscribers": "Join 5,000+ subscribers on Substack for clinical health insights."
   },
   "Conditions": {
+    "label": "CLINICAL SERVICES",
     "title": "Conditions We Treat",
     "subtitle": "Specialized chronic pain and musculoskeletal treatment plans tailored to your specific injury.",
     "allConditions": "All Conditions",
@@ -421,6 +422,7 @@
   },
   "MethodPage": {
     "hero": {
+      "label": "THE SHAOLIN METHOD",
       "title": "OUR METHOD",
       "subtitle": "How We Treat Chronic Muscle and Joint Pain",
       "hook": "When pain keeps coming back, there is usually a reason. Most chronic muscle and joint pain does not come from a single problem. It comes from a combination of persistent inflammation, restricted movement and weakened supporting structures — none of which has been fully resolved. Treatments that address only one of these factors tend to produce temporary improvement. When the underlying combination remains, the pain returns. Our method is built around resolving all three together, in a structured and integrated way."

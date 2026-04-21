@@ -85,19 +85,11 @@ export default async function ConditionDetail({
       <main className="grow">
         {/* Dynamic Abstract Hero */}
         <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-brand-teal-deep text-white">
-          <div className="absolute inset-0 bg-linear-to-br from-brand-teal-deep to-brand-teal z-0" />
-          {/* Abstract DNA/Spine Pattern */}
-          <div className="absolute inset-0 z-0 opacity-10 flex border-y border-white/5 mx-auto max-w-7xl rotate-3 scale-110">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <div key={i} className="flex-1 border-r border-white/10 skew-x-12" />
-            ))}
-          </div>
-          
-          <div className="container mx-auto px-6 relative z-10">
+          <div className="container mx-auto px-6 relative z-10 text-left">
             <Breadcrumbs />
             
-            <div className="max-w-4xl">
-              <div className="text-label inline-flex items-center space-x-3 px-4 py-1.5 rounded-full border border-brand-gold/30 bg-brand-gold/10 mb-6">
+            <div className="max-w-4xl mt-8">
+              <div className="text-label inline-flex items-center space-x-3 px-4 py-1.5 rounded-full border border-brand-gold/30 bg-brand-gold/10 mb-6 uppercase text-brand-gold">
                 <div className="w-5 h-5 relative">
                   <Image 
                     src={conditionsData[slug as ConditionSlug].iconPath} 
@@ -108,10 +100,10 @@ export default async function ConditionDetail({
                 </div>
                 <span>{t("targetedRecovery")}</span>
               </div>
-              <h1 className="text-h2 lg:text-8xl mb-8 drop-shadow-lg">
+              <h1 className="text-h2 lg:text-8xl mb-8 drop-shadow-lg text-left uppercase">
                 {title}
               </h1>
-              <p className="text-lead text-white/80 max-w-3xl">
+              <p className="text-lead text-white max-w-3xl text-left">
                 {desc}
               </p>
             </div>

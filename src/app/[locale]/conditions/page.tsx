@@ -20,21 +20,18 @@ export default function ConditionsIndex() {
       <main className="grow">
         {/* Abstract Hero Section */}
         <section className="pt-40 pb-20 lg:pt-56 lg:pb-32 bg-brand-teal-deep text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-linear-to-b from-brand-teal-deep/80 via-transparent to-brand-teal-deep z-10" />
-          <div className="absolute inset-0 z-0 opacity-10 flex flex-wrap gap-8 justify-center mix-blend-overlay">
-            {/* Just an abstract background pattern replacing images */}
-            {Array.from({ length: 48 }).map((_, i) => (
-              <div key={i} className="w-24 h-24 border border-white/20 rounded-full shrink-0" />
-            ))}
-          </div>
-
-          <div className="container mx-auto px-6 relative z-20 text-center">
-            <h1 className="text-display text-4xl lg:text-7xl mb-6 drop-shadow-lg">
-              {t("title")}
-            </h1>
-            <p className="text-lead text-brand-gold max-w-4xl mx-auto">
-              {t("subtitle")}
-            </p>
+          <div className="container mx-auto px-6 relative z-20 text-left">
+            <div className="max-w-4xl">
+              <div className="text-label inline-flex items-center space-x-3 px-4 py-1.5 rounded-full border border-brand-gold/30 bg-brand-gold/10 mb-6 text-brand-gold uppercase">
+                <span>{t("label") || "Clinical Services"}</span>
+              </div>
+              <h1 className="text-display mb-8 uppercase">
+                {t("title")}
+              </h1>
+              <p className="text-lead text-white max-w-2xl">
+                {t("subtitle")}
+              </p>
+            </div>
           </div>
         </section>
 

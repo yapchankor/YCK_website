@@ -260,6 +260,7 @@
     "newsletterSubscribers": "Sertai 5,000+ langganan Substack untuk wawasan kesihatan klinikal."
   },
   "Conditions": {
+    "label": "PERKHIDMATAN KLINIKAL",
     "title": "Apa Yang Kami Rawat",
     "subtitle": "Rawatan pakar untuk sakit kronik dan masalah muskuloskeletal yang disesuaikan dengan kecederaan anda.",
     "allConditions": "Semua Keadaan",
@@ -423,6 +424,7 @@
   },
   "MethodPage": {
     "hero": {
+      "label": "KAEDAH SHAOLIN",
       "title": "KAEDAH KAMI",
       "subtitle": "Cara Kami Merawat Otot Kronik dan Sakit Sendi",
       "hook": "Apabila kesakitan terus datang kembali, biasanya ada sebab. Kebanyakan sakit otot dan sendi yang kronik tidak datang dari satu masalah. Ia datang daripada gabungan keradangan berterusan, pergerakan terhad dan struktur sokongan yang lemah - tiada satu pun yang telah diselesaikan sepenuhnya. Rawatan yang menangani hanya satu daripada faktor ini cenderung untuk menghasilkan peningkatan sementara. Apabila gabungan asas kekal, rasa sakit kembali. Kaedah kami dibina berdasarkan penyelesaian ketiga-tiga bersama-sama, dengan cara yang tersusun dan bersepadu."

@@ -30,30 +30,18 @@ export default async function SciencePage({
       
       <main className="grow">
         {/* Science Hero */}
-        <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-brand-teal-deep text-white">
-          <div className="absolute inset-0 z-0">
-             <Image 
-              src="/science_hero_clinical_1776349608829.png"
-              alt="Clinical Science"
-              fill
-              priority
-              className="object-cover opacity-30 grayscale saturate-0"
-             />
-             <div className="absolute inset-0 bg-linear-to-br from-brand-teal-deep via-brand-teal-deep/90 to-brand-teal/80" />
-          </div>
-
-          <div className="container mx-auto px-6 relative z-10">
+        <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-brand-teal-deep text-white">          <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-4xl">
-              <div className="text-label inline-flex items-center space-x-3 px-4 py-1.5 rounded-full border border-brand-gold/30 bg-brand-gold/10 mb-6 text-brand-gold">
+              <div className="text-label inline-flex items-center space-x-3 px-4 py-1.5 rounded-full border border-brand-gold/30 bg-brand-gold/10 mb-6 text-brand-gold uppercase">
                 <FlaskConical size={14} className="mr-2" />
                 <span>{t("heroLabel")}</span>
               </div>
               
-              <h1 className="text-display text-white mb-8">
+              <h1 className="text-display text-white mb-8 uppercase">
                 {t("heroTitle")}
               </h1>
               
-              <p className="text-lead text-white/80 max-w-2xl">
+              <p className="text-lead text-white max-w-2xl">
                 {t("heroSubtitle")}
               </p>
             </div>

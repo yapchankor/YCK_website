@@ -29,19 +29,17 @@ export default async function TestimonialsPage({
       <main className="grow">
         {/* Hero Section */}
         <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-brand-teal-deep text-white">
-          <div className="absolute inset-0 bg-linear-to-br from-brand-teal-deep to-brand-teal z-0" />
-          
-          <div className="container mx-auto px-6 relative z-10">
+          <div className="container mx-auto px-6 relative z-10 text-left">
             <div className="max-w-4xl">
-              <div className="text-label inline-flex items-center space-x-3 px-4 py-1.5 rounded-full border border-brand-gold/30 bg-brand-gold/10 mb-6">
+              <div className="text-label inline-flex items-center space-x-3 px-4 py-1.5 rounded-full border border-brand-gold/30 bg-brand-gold/10 mb-6 uppercase text-brand-gold">
                 <span>{t("title")}</span>
               </div>
               
-              <h1 className="text-h2 lg:text-8xl mb-8">
+              <h1 className="text-h2 lg:text-8xl mb-8 uppercase">
                 {t("heroTitle")}
               </h1>
               
-              <p className="text-body-lg text-white/80 max-w-2xl">
+              <p className="text-body-lg text-white max-w-2xl">
                 {t("heroSubtitle")}
               </p>
             </div>

@@ -67,18 +67,7 @@ export default async function InsightDetailPage({ params }: { params: Promise<{ 
           />
           {/* Header Section */}
           <div className="bg-brand-teal-deep text-white pt-24 pb-32 relative overflow-hidden">
-            <div className="absolute inset-0 opacity-20">
-              <Image 
-                src={insight.imageUrl} 
-                alt="" 
-                fill
-                priority
-                sizes="100vw"
-                className="object-cover blur-sm"
-              />
-              <div className="absolute inset-0 bg-brand-teal-deep/80" />
-            </div>
-            <div className="container mx-auto px-6 max-w-4xl relative z-10 text-center">
+            <div className="container mx-auto px-6 max-w-4xl relative z-10 text-left">
               <Link 
                 href="/insights" 
                 className="inline-flex items-center text-brand-gold hover:text-white transition-colors mb-10 text-label"
@@ -86,11 +75,11 @@ export default async function InsightDetailPage({ params }: { params: Promise<{ 
               >
                 <ArrowLeft size={14} className="mr-2" /> Back to Insights
               </Link>
-              <div className="text-label text-brand-gold/80 mb-6 gap-2 flex items-center justify-center">
+              <div className="text-label text-brand-gold/80 mb-6 gap-2 flex items-center">
                  <Calendar size={14} />
                  {new Date(insight.pubDate).toLocaleDateString(safeLocale, { year: 'numeric', month: 'long', day: 'numeric' })}
               </div>
-              <h1 className="text-h2 text-white mb-8 drop-shadow-lg" itemProp="headline">
+              <h1 className="text-h2 text-white mb-8 drop-shadow-lg text-left" itemProp="headline">
                 {insight.title}
               </h1>
             </div>

@@ -1,15 +1,17 @@
-import { useTranslations, useLocale } from "next-intl";
+import { getTranslations, getLocale } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { Button } from "./ui/button";
-import { MapPin, Phone, Clock, ArrowRight, ChevronRight } from "lucide-react";
+import { MapPin, Phone, Clock, ArrowRight } from "lucide-react";
 import Script from "next/script";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { client } from "@/sanity/lib/client";
+import { urlForImage } from "@/sanity/lib/image";
 
-export function Branches() {
-  const t = useTranslations("Branches");
-
-  const locale = useLocale();
+export async function Branches() {
+  const t = await getTranslations("Branches");
+  const locale = await getLocale();
+  const websiteImages = await client.fetch(`*[_type == "websiteImages"][0]`);
 
   const branches = [
     { 
@@ -20,7 +22,7 @@ export function Branches() {
       hours: t("ampang.hoursLines"),
       wazeUrl: t("ampang.wazeUrl"),
       googleMapsUrl: t("ampang.googleMapsUrl"),
-      image: "/images/ampang_new.webp",
+      image: websiteImages?.ampangImage ? urlForImage(websiteImages.ampangImage)?.url() : "/images/ampang_new.webp",
       geo: { lat: 3.1467, lng: 101.7660 }
     },
     { 
@@ -31,7 +33,7 @@ export function Branches() {
       hours: t("okr.hoursLines"),
       wazeUrl: t("okr.wazeUrl"),
       googleMapsUrl: t("okr.googleMapsUrl"),
-      image: "/images/OKR YCK  Interior.webp",
+      image: websiteImages?.okrImage ? urlForImage(websiteImages.okrImage)?.url() : "/images/OKR YCK  Interior.webp",
       geo: { lat: 3.0983, lng: 101.6735 }
     },
     { 
@@ -42,7 +44,7 @@ export function Branches() {
       hours: t("shahAlam.hoursLines"),
       wazeUrl: t("shahAlam.wazeUrl"),
       googleMapsUrl: t("shahAlam.googleMapsUrl"),
-      image: "/images/shah-alam_new.webp",
+      image: websiteImages?.shahAlamImage ? urlForImage(websiteImages.shahAlamImage)?.url() : "/images/shah-alam_new.webp",
       geo: { lat: 3.0816, lng: 101.5401 }
     },
     { 
@@ -53,7 +55,7 @@ export function Branches() {
       hours: t("subangJaya.hoursLines"),
       wazeUrl: t("subangJaya.wazeUrl"),
       googleMapsUrl: t("subangJaya.googleMapsUrl"),
-      image: "/images/subang_new.webp",
+      image: websiteImages?.subangImage ? urlForImage(websiteImages.subangImage)?.url() : "/images/subang_new.webp",
       geo: { lat: 3.0778, lng: 101.5886 }
     },
   ];
@@ -130,15 +132,15 @@ export function Branches() {
 }
 
 function BranchCard({ id, name, address, phone, hours, wazeUrl, googleMapsUrl, image, index, ctaView, ctaBook, ctaDirections }: { id: string; name: string; address: string; phone: string; hours: string; wazeUrl: string; googleMapsUrl: string; image: string; index: number; ctaView: string; ctaBook: string; ctaDirections: string }) {
-  const tw = useTranslations("WhatsApp");
-  const whatsappUrl = getWhatsAppUrl(tw("branchMessage", { branch: name }));
-
+  // Pass the generated URLs down if using async/await inside map is tricky, or just use useTranslations if client, but it's a Server Component!
+  // Wait, I can just use getTranslations here as long as I make it async. But wait, I'm already inside an async component and the easiest is just making this async.
+  // Actually, I will pre-fetch translations to avoid making BranchCard async since it's mapped over.
   return (
     <div 
       className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:bg-white/10 transition-all group flex flex-col h-full shadow-2xl"
     >
       <div className="h-48 lg:h-56 overflow-hidden relative">
-        <Image src={image} alt={name} fill sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
+        <Image src={image || "/images/ampang_new.webp"} alt={name} fill sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
         <div className="absolute inset-0 bg-linear-to-t from-brand-teal-deep to-transparent opacity-60" />
       </div>
       <div className="p-6 lg:p-10 flex flex-col grow">
@@ -184,14 +186,7 @@ function BranchCard({ id, name, address, phone, hours, wazeUrl, googleMapsUrl, i
         </div>
 
         <div className="space-y-3 pt-4 border-t border-white/5">
-          <Button 
-            asChild
-            className="w-full bg-brand-gold hover:bg-brand-gold-dark text-white font-bold rounded-xl h-11 lg:h-12 uppercase tracking-widest text-xs"
-          >
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" id={`cta_book_branch_${index}_click`}>
-              {ctaBook}
-            </a>
-          </Button>
+            <WhatsAppBranchButton branchName={name} ctaBook={ctaBook} index={index} />
           <Link 
             href={`/locations/${id}`}
             className="w-full py-2 text-label flex items-center justify-center space-x-2 text-white/30 hover:text-white transition-colors"
@@ -202,5 +197,21 @@ function BranchCard({ id, name, address, phone, hours, wazeUrl, googleMapsUrl, i
         </div>
       </div>
     </div>
+  );
+}
+
+async function WhatsAppBranchButton({ branchName, ctaBook, index }: { branchName: string; ctaBook: string; index: number }) {
+  const tw = await getTranslations("WhatsApp");
+  const whatsappUrl = getWhatsAppUrl(tw("branchMessage", { branch: branchName }));
+  
+  return (
+    <Button 
+      asChild
+      className="w-full bg-brand-gold hover:bg-brand-gold-dark text-white font-bold rounded-xl h-11 lg:h-12 uppercase tracking-widest text-xs"
+    >
+      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" id={`cta_book_branch_${index}_click`}>
+        {ctaBook}
+      </a>
+    </Button>
   );
 }

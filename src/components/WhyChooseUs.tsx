@@ -1,6 +1,8 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
+import { client } from "@/sanity/lib/client";
+import { urlForImage } from "@/sanity/lib/image";
 
 function renderDescriptionWithLinks(text: string): (string | React.ReactElement)[] {
   const conditionLinks = [
@@ -28,20 +30,21 @@ function renderDescriptionWithLinks(text: string): (string | React.ReactElement)
   return parts;
 }
 
-export function WhyChooseUs() {
-  const t = useTranslations("WhyChooseUs");
+export async function WhyChooseUs() {
+  const t = await getTranslations("WhyChooseUs");
+  const websiteImages = await client.fetch(`*[_type == "websiteImages"][0]`);
 
   const features = [
     {
-      icon: "/images/manual therapy.webp",
+      icon: websiteImages?.methodManualTherapy ? urlForImage(websiteImages.methodManualTherapy)?.url() : "/images/manual therapy.webp",
       label: t("item1"),
     },
     {
-      icon: "/images/structuredrehab.webp",
+      icon: websiteImages?.methodStructuredRehab ? urlForImage(websiteImages.methodStructuredRehab)?.url() : "/images/structuredrehab.webp",
       label: t("item2"),
     },
     {
-      icon: "/images/clinicalformulation.webp",
+      icon: websiteImages?.methodClinicalFormulation ? urlForImage(websiteImages.methodClinicalFormulation)?.url() : "/images/clinicalformulation.webp",
       label: t("item3"),
     },
   ];
@@ -73,7 +76,7 @@ export function WhyChooseUs() {
                 >
                   <div className="w-40 h-40 lg:w-48 lg:h-48 rounded-full bg-white shadow-clinical mb-4 transition-transform group-hover:scale-105 duration-500 flex items-center justify-center p-8 relative">
                     <Image 
-                      src={feature.icon} 
+                      src={feature.icon || "/images/manual therapy.webp"} 
                       alt={feature.label}
                       fill
                       sizes="192px"
