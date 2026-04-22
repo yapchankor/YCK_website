@@ -41,7 +41,7 @@
     "conditions": "Services",
     "solutions": "Solutions",
     "testimonials": "Testimonials",
-    "bookAssessment": "Book Clinical Assessment"
+    "bookAssessment": "Book Now"
   },
   "WhatsApp": {
     "defaultMessage": "Hello YAPCHANKOR, I would like to book an assessment.",
@@ -587,7 +587,7 @@
     },
     "whatsapp": {
       "title": "Prefer WhatsApp?",
-      "button": "Chat with Us Now",
+      "button": "Book Now",
       "message": "Hi YAPCHANKOR, I saw your ad and would like to book a clinical assessment for my pain."
     },
     "benefits": {
@@ -609,6 +609,13 @@
       "title": "Our Recovery Centers",
       "subtitle": "Visit any of our 4 specialized centers in Klang Valley for a professional clinical assessment.",
       "cta": "Contact Branch"
+    },
+    "monashStudy": {
+      "title": "Scientifically Validated by Monash University",
+      "subtitle": "Our proprietary herbal formulations have been laboratory-tested for anti-inflammatory efficacy.",
+      "finding1": "Proven reduction in inflammatory markers",
+      "finding2": "Enhanced transdermal absorption methodology",
+      "finding3": "Safe, non-invasive therapeutic action"
     }
   }
 }

@@ -41,7 +41,7 @@
     },
     "whatsapp": {
       "title": "Lebih Suka WhatsApp?",
-      "button": "Sembang dengan Kami Sekarang",
+      "button": "Tempah Sekarang",
       "message": "Hi YAPCHANKOR, saya melihat iklan anda dan ingin menempah penilaian klinikal untuk kesakitan saya."
     },
     "benefits": {
@@ -63,6 +63,13 @@
       "title": "Pusat Pemulihan Kami",
       "subtitle": "Lawati mana-mana daripada 4 pusat pakar kami di Lembah Klang untuk penilaian klinikal profesional.",
       "cta": "Hubungi Cawangan"
+    },
+    "monashStudy": {
+      "title": "Disahkan Secara Saintifik oleh Universiti Monash",
+      "subtitle": "Formulasi herba proprietari kami telah diuji makmal untuk keberkesanan anti-radang.",
+      "finding1": "Pengurangan terbukti dalam penanda keradangan",
+      "finding2": "Metodologi penyerapan transdermal yang dipertingkatkan",
+      "finding3": "Tindakan terapeutik yang selamat dan tidak invasif"
     }
   },
   "Hero": {
@@ -107,7 +114,7 @@
     "conditions": "Perkhidmatan",
     "solutions": "Penyelesaian",
     "testimonials": "Testimoni",
-    "bookAssessment": "Tempah Penilaian Klinikal"
+    "bookAssessment": "Tempah Sekarang"
   },
   "WhatsApp": {
     "defaultMessage": "Hi YAPCHANKOR, saya ingin menempah penilaian klinikal.",

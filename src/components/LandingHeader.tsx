@@ -40,52 +40,56 @@ export function LandingHeader() {
         : "bg-brand-bg/0 border-b border-transparent"
     )}>
       <div className={cn(
-        "container mx-auto flex items-center justify-between px-6 transition-all duration-500",
+        "container mx-auto px-6 transition-all duration-500",
         isScrolled ? "h-20" : "h-32 lg:h-40 pt-4"
       )}>
-        {/* Logo */}
-        <Link href="/" className="flex items-center relative z-50">
-          <Image
-            src="/images/logo/wordmark_vertical.png"
-            alt="YAPCHANKOR Clinic Logo"
-            width={138}
-            height={154}
-            priority
-            className={cn(
-              "object-contain transition-all duration-500 hover:scale-[1.03]",
-              isScrolled ? "h-12 lg:h-16 w-auto" : "h-20 sm:h-24 lg:h-32 w-auto"
-            )}
-          />
-        </Link>
-
-        {/* Actions */}
-        <div className="flex items-center space-x-3 lg:space-x-8">
-          {/* Language Switcher */}
-          <div className="flex items-center bg-brand-teal/5 lg:bg-transparent p-1 lg:p-0 rounded-lg lg:rounded-none lg:space-x-1">
-            {routing.locales.map((l) => (
-              <button
-                key={l}
-                onClick={() => handleLanguageChange(l)}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center h-full">
+          {/* Logo Side - Aligns with content */}
+          <div className="lg:col-span-7 flex items-center">
+            <Link href="/" className="flex items-center relative z-50">
+              <Image
+                src="/images/logo/main_logo.webp"
+                alt="YAPCHANKOR Clinic Logo"
+                width={180}
+                height={60}
+                priority
                 className={cn(
-                  "px-2 lg:px-2.5 py-1.5 lg:py-1 rounded text-label text-[10px] transition-all",
-                  locale === l 
-                    ? "bg-brand-teal text-white shadow-sm" 
-                    : "text-brand-teal-deep/40 hover:text-brand-teal hover:bg-brand-teal/5"
+                  "object-contain transition-all duration-500 hover:scale-[1.03]",
+                  isScrolled ? "h-12 lg:h-16 w-auto" : "h-20 sm:h-24 lg:h-32 w-auto"
                 )}
-              >
-                {localeLabels[l] ?? l}
-              </button>
-            ))}
+              />
+            </Link>
           </div>
 
-          <Button 
-            asChild
-            className="rounded-full px-7 h-11 text-label bg-brand-teal text-white hover:bg-brand-teal-deep shadow-clinical"
-          >
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-              {t("whatsapp.button")}
-            </a>
-          </Button>
+          {/* Actions Side - Aligns with Form Card */}
+          <div className="lg:col-span-5 flex items-center space-x-3 lg:space-x-8">
+            {/* Language Switcher */}
+            <div className="flex items-center bg-brand-teal/5 lg:bg-transparent p-1 lg:p-0 rounded-lg lg:rounded-none lg:space-x-1">
+              {routing.locales.map((l) => (
+                <button
+                  key={l}
+                  onClick={() => handleLanguageChange(l)}
+                  className={cn(
+                    "px-2 lg:px-2.5 py-1.5 lg:py-1 rounded text-label text-[10px] transition-all",
+                    locale === l 
+                      ? "bg-brand-teal text-white shadow-sm" 
+                      : "text-brand-teal-deep/40 hover:text-brand-teal hover:bg-brand-teal/5"
+                  )}
+                >
+                  {localeLabels[l] ?? l}
+                </button>
+              ))}
+            </div>
+
+            <Button 
+              asChild
+              className="rounded-full px-7 h-11 text-label bg-brand-teal text-white hover:bg-brand-teal-deep shadow-clinical"
+            >
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                {t("whatsapp.button")}
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
     </header>

@@ -41,7 +41,7 @@
     },
     "whatsapp": {
       "title": "更喜欢 WhatsApp？",
-      "button": "立即与我们聊天",
+      "button": "立即预约",
       "message": "您好 YAPCHANKOR，我看到了您的广告，想为我的疼痛预约临床评估。"
     },
     "benefits": {
@@ -63,6 +63,13 @@
       "title": "我们的康复中心",
       "subtitle": "欢迎亲临我们位于巴生谷的 4 家专业中心，进行专业的临床评估。",
       "cta": "联系分院"
+    },
+    "monashStudy": {
+      "title": "莫纳什大学 (Monash University) 科学验证",
+      "subtitle": "我们的专利草药配方已经过实验室抗炎功效测试。",
+      "finding1": "经证实可减少炎症标记物",
+      "finding2": "增强型透皮吸收技术",
+      "finding3": "安全、非侵入性的治疗作用"
     }
   },
   "Hero": {
@@ -107,7 +114,7 @@
     "conditions": "服务项目",
     "solutions": "诊疗方案",
     "testimonials": "患者见证",
-    "bookAssessment": "预约门诊评估"
+    "bookAssessment": "立即预约"
   },
   "WhatsApp": {
     "defaultMessage": "您好 YAPCHANKOR，我想预约临床评估。",
