@@ -40,12 +40,12 @@ export function LandingHeader() {
         : "bg-brand-bg/0 border-b border-transparent"
     )}>
       <div className={cn(
-        "container mx-auto px-6 transition-all duration-500",
-        isScrolled ? "h-20" : "h-32 lg:h-40 pt-4"
+        "container mx-auto px-4 sm:px-6 transition-all duration-500 overflow-hidden",
+        isScrolled ? "py-3 lg:h-20" : "py-4 lg:h-40 lg:pt-4"
       )}>
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center h-full">
-          {/* Logo Side - Aligns with content */}
-          <div className="lg:col-span-7 flex items-center">
+        <div className="flex items-center justify-between h-full lg:grid lg:grid-cols-12 lg:gap-20">
+          {/* Logo Side - Aligns with content on desktop */}
+          <div className="lg:col-span-7 flex items-center shrink-0">
             <Link href="/" className="flex items-center relative z-50">
               <Image
                 src="/images/logo/main_logo.webp"
@@ -55,14 +55,14 @@ export function LandingHeader() {
                 priority
                 className={cn(
                   "object-contain transition-all duration-500 hover:scale-[1.03]",
-                  isScrolled ? "h-12 lg:h-16 w-auto" : "h-20 sm:h-24 lg:h-32 w-auto"
+                  isScrolled ? "h-10 lg:h-16 w-auto" : "h-14 sm:h-20 lg:h-32 w-auto"
                 )}
               />
             </Link>
           </div>
 
-          {/* Actions Side - Aligns with Form Card */}
-          <div className="lg:col-span-5 flex items-center space-x-3 lg:space-x-8">
+          {/* Actions Side - Aligns with Form Card on desktop */}
+          <div className="lg:col-span-5 flex items-center justify-end space-x-2 lg:space-x-8">
             {/* Language Switcher */}
             <div className="flex items-center bg-brand-teal/5 lg:bg-transparent p-1 lg:p-0 rounded-lg lg:rounded-none lg:space-x-1">
               {routing.locales.map((l) => (
@@ -70,7 +70,7 @@ export function LandingHeader() {
                   key={l}
                   onClick={() => handleLanguageChange(l)}
                   className={cn(
-                    "px-2 lg:px-2.5 py-1.5 lg:py-1 rounded text-label text-[10px] transition-all",
+                    "px-1.5 lg:px-2.5 py-1 lg:py-1 rounded text-label text-[10px] transition-all",
                     locale === l 
                       ? "bg-brand-teal text-white shadow-sm" 
                       : "text-brand-teal-deep/40 hover:text-brand-teal hover:bg-brand-teal/5"
@@ -83,7 +83,7 @@ export function LandingHeader() {
 
             <Button 
               asChild
-              className="rounded-full px-7 h-11 text-label bg-brand-teal text-white hover:bg-brand-teal-deep shadow-clinical"
+              className="rounded-full px-4 lg:px-7 h-9 lg:h-11 text-[10px] lg:text-xs text-label bg-brand-teal text-white hover:bg-brand-teal-deep shadow-clinical shrink-0"
             >
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 {t("whatsapp.button")}
