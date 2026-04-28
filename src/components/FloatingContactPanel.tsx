@@ -61,6 +61,13 @@ export function FloatingContactPanel() {
         {/* Phone Call Button */}
         <a
           href={`tel:${CALL_NUMBER}`}
+          onClick={() => {
+            const dataLayer = (window as any).dataLayer || [];
+            dataLayer.push({
+              event: "phone_call_click",
+              phone_number: CALL_NUMBER
+            });
+          }}
           className="group relative flex items-center justify-center w-12 h-12 bg-white border border-brand-teal/20 rounded-l-xl shadow-xl hover:bg-brand-teal hover:text-white text-brand-teal transition-all duration-300"
           aria-label={t("callTooltip")}
         >

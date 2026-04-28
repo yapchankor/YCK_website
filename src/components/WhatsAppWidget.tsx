@@ -11,10 +11,19 @@ export function WhatsAppWidget() {
   
   const isLandingPage = pathname?.includes("/lp/");
   const whatsappUrl = getWhatsAppUrl(defaultMessage, isLandingPage ? ADS_WHATSAPP_NUMBER : undefined);
+  
+  const handleWhatsAppClick = () => {
+    const dataLayer = (window as any).dataLayer || [];
+    dataLayer.push({
+      event: "whatsapp_click",
+      page_path: pathname
+    });
+  };
 
   return (
     <a 
       href={whatsappUrl}
+      onClick={handleWhatsAppClick}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 lg:bottom-10 lg:right-10 z-100 group"

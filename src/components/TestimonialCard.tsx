@@ -32,6 +32,15 @@ export function TestimonialCard({ testimonial, className, isHero = false }: Test
     ? content.slice(0, 200) + "..."
     : isSanity ? summary : content;
 
+  const handleTrackView = () => {
+    const dataLayer = (window as any).dataLayer || [];
+    dataLayer.push({
+      event: "testimonial_view_full",
+      testimonial_id: isSanity ? testimonial.slug : (testimonial as any).id,
+      testimonial_title: isSanity ? testimonial.title : testimonial.slug
+    });
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -84,6 +93,7 @@ export function TestimonialCard({ testimonial, className, isHero = false }: Test
         {/* Headline */}
         <Link 
           href={isSanity ? `/testimonials/${testimonial.slug}` : `${SOLUTION_SLUGS.includes(testimonial.slug) ? "/solutions" : "/conditions"}/${testimonial.slug}`}
+          onClick={handleTrackView}
           className="group/title inline-block mb-3"
         >
           <h4 className="text-lg lg:text-xl font-bold text-brand-teal capitalize group-hover/title:text-brand-gold transition-colors leading-tight line-clamp-2">
@@ -125,6 +135,7 @@ export function TestimonialCard({ testimonial, className, isHero = false }: Test
         {isSanity ? (
           <Link
             href={`/testimonials/${testimonial.slug}`}
+            onClick={handleTrackView}
             className="inline-flex items-center gap-2 text-xs font-bold text-brand-teal hover:text-brand-gold transition-colors uppercase tracking-wider mt-auto pt-4 border-t border-brand-teal/5"
           >
             <span>{t("readFullStory")}</span>
@@ -132,7 +143,10 @@ export function TestimonialCard({ testimonial, className, isHero = false }: Test
           </Link>
         ) : (
           <button
-            onClick={() => setIsExpanded(!isExpanded)}
+            onClick={() => {
+              setIsExpanded(!isExpanded);
+              if (!isExpanded) handleTrackView();
+            }}
             className="inline-flex items-center gap-2 text-xs font-bold text-brand-teal hover:text-brand-gold transition-colors uppercase tracking-wider mt-auto pt-4 border-t border-brand-teal/5"
           >
             <span>{isExpanded ? t("viewLess", { defaultValue: "View Less" }) : t("readFullStory")}</span>

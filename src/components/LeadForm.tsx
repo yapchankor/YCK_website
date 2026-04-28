@@ -12,6 +12,18 @@ const FORMSPREE_ID = "xdaywjpy";
 export function LeadForm({ className }: { className?: string }) {
   const t = useTranslations("LandingPage.form");
   const [state, setState] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [hasStarted, setHasStarted] = useState(false);
+
+  const handleFormStart = () => {
+    if (!hasStarted) {
+      const dataLayer = (window as any).dataLayer || [];
+      dataLayer.push({
+        event: "form_start",
+        form_name: "lead_form"
+      });
+      setHasStarted(true);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,6 +47,15 @@ export function LeadForm({ className }: { className?: string }) {
       });
 
       if (response.ok) {
+        // Fire GTM event for tracking conversions without redirect
+        const dataLayer = (window as any).dataLayer || [];
+        dataLayer.push({
+          event: "form_submission_success",
+          form_name: "lead_form",
+          branch: data["Branch"],
+          lead_source: data["Lead Source"]
+        });
+        
         setState("success");
       } else {
         setState("error");
@@ -62,7 +83,11 @@ export function LeadForm({ className }: { className?: string }) {
       <h3 className="text-2xl font-bold text-brand-teal-deep mb-2">{t("title")}</h3>
       <p className="text-brand-teal-deep/60 text-sm mb-8">{t("subtitle")}</p>
 
-      <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+      <form 
+        onSubmit={handleSubmit} 
+        onFocus={handleFormStart}
+        className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5"
+      >
         {/* Anti-spam honeypot */}
         <input type="text" name="_gotcha" style={{ display: "none" }} />
         
