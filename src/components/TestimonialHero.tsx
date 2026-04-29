@@ -32,7 +32,6 @@ export function TestimonialHero() {
           <div className="grid grid-cols-2 md:flex md:flex-wrap gap-4 mb-12">
             {(t.raw("heroTags") as string[]).map((tag, i) => (
               <div key={i} className="px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-sm font-bold tracking-wide uppercase text-brand-gold/80 flex items-center justify-center lg:justify-start">
-                <div className="w-1.5 h-1.5 rounded-full bg-brand-gold mr-3" />
                 {tag}
               </div>
             ))}
