@@ -110,7 +110,7 @@ export function TestimonialGrid({
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
             {featured.map((testimonial) => (
               <TestimonialCard 
-                key={'_id' in testimonial ? (testimonial as any)._id : (testimonial as any).id}
+                key={testimonial._id}
                 testimonial={testimonial} 
                 isHero={true}
               />
@@ -166,13 +166,13 @@ export function TestimonialGrid({
         </section>
       )}
 
-      {/* Main Grid — Static testimonials */}
+      {/* Main Grid — All testimonials from Sanity CMS */}
       <div className="space-y-16">
         {activeCategory !== "all" && (
           <div className="flex items-center space-x-4 mb-4">
             <div className="h-px grow bg-brand-teal/10" />
             <h2 className="text-label text-brand-gold font-bold uppercase tracking-[0.2em] shrink-0">
-              {t(`categories.${activeCategory}`)} — {allFilteredStatic.length} Cases
+              {t(`categories.${activeCategory}`)} — {allFiltered.length} Cases
             </h2>
             <div className="h-px grow bg-brand-teal/10" />
           </div>
@@ -180,9 +180,9 @@ export function TestimonialGrid({
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           <AnimatePresence mode="popLayout">
-            {visibleStatic.map((testimonial, idx) => (
+            {visibleItems.map((testimonial, idx: number) => (
               <motion.div
-                key={testimonial.id}
+                key={testimonial._id}
                 layout
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -202,7 +202,7 @@ export function TestimonialGrid({
           </AnimatePresence>
         </div>
 
-        {allFilteredStatic.length > visibleCount && (
+        {allFiltered.length > visibleCount && (
           <div className="flex justify-center pt-8">
             <Button
               onClick={loadMore}
@@ -213,7 +213,7 @@ export function TestimonialGrid({
           </div>
         )}
 
-        {allFilteredStatic.length === 0 && (
+        {allFiltered.length === 0 && (
           <div className="text-center py-24 bg-white rounded-[3rem] border border-brand-teal/5 shadow-clinical">
             <p className="text-xl text-brand-teal/40 italic">
               {t("noResults")}
