@@ -4,8 +4,8 @@ import websiteImages from './schemas/websiteImages'
 import physiotherapist from './schemas/physiotherapist'
 import article from './schemas/article'
 import testimonial from './schemas/testimonial'
-import testimonialImageOverride from './schemas/testimonialImageOverride'
+import staticTestimonial from './schemas/staticTestimonial'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [siteSettings, websiteImages, physiotherapist, article, testimonial, testimonialImageOverride],
+  types: [siteSettings, websiteImages, physiotherapist, article, testimonial, staticTestimonial],
 }

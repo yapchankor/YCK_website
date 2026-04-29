@@ -24,7 +24,6 @@ const CATEGORY_IDS = [
   "chronic-pain",
 ];
 
-// Map filter IDs to static data slugs (some filters match multiple slugs)
 const SLUG_MAP: Record<string, string[]> = {
   "knee-pain": ["knee-pain"],
   "back-pain": ["back-pain", "slipped-disc"],
@@ -39,14 +38,15 @@ const SLUG_MAP: Record<string, string[]> = {
 };
 
 interface TestimonialGridProps {
-  initialTestimonials?: SanityTestimonial[];
   featuredTestimonials?: SanityTestimonial[];
-  allSanityTestimonials?: SanityTestimonial[];
+  staticTestimonials?: SanityTestimonial[];
+  imageOverrides?: { testimonialId: string; imageUrl: string }[];
 }
 
 export function TestimonialGrid({ 
   featuredTestimonials = [], 
-  allSanityTestimonials = [] 
+  staticTestimonials = [],
+  imageOverrides = [] 
 }: TestimonialGridProps) {
   const t = useTranslations("Testimonials");
   const searchParams = useSearchParams();
@@ -57,31 +57,36 @@ export function TestimonialGrid({
   const [activeCategory, setActiveCategory] = useState(initialCategory);
   const [visibleCount, setVisibleCount] = useState(12);
 
-  // Featured: always from Sanity (max 6, managed in CMS)
+  // Featured: only from the premium "Testimonial" collection
   const featured = useMemo(() => {
     return featuredTestimonials.slice(0, 6);
   }, [featuredTestimonials]);
 
-  // Filtered testimonials based on active category
+  // Main Grid: from the "Static Testimonial" collection
   const allFiltered = useMemo(() => {
-    let baseData = allSanityTestimonials.filter(st => !featured.some(ft => ft._id === st._id));
+    let baseData = [...staticTestimonials];
 
-    if (activeCategory === "all") {
-      return baseData;
-    } else {
+    if (activeCategory !== "all") {
       const slugs = SLUG_MAP[activeCategory] || [activeCategory];
-      return baseData.filter(t => t.category && slugs.includes(t.category));
+      baseData = baseData.filter(item => slugs.includes(item.category));
     }
-  }, [activeCategory, allSanityTestimonials, featured]);
 
-  // The actually visible subset
+    return baseData.map(item => {
+      const override = imageOverrides.find(o => o.testimonialId === item.slug || o.testimonialId === (item as any).id);
+      if (override && !item.imageUrl) {
+        return { ...item, imageUrl: override.imageUrl };
+      }
+      return item;
+    });
+  }, [activeCategory, staticTestimonials, imageOverrides]);
+
   const visibleItems = useMemo(() => {
     return allFiltered.slice(0, visibleCount);
   }, [allFiltered, visibleCount]);
 
   const handleCategoryChange = (id: string) => {
     setActiveCategory(id);
-    setVisibleCount(12); // Reset count on category change
+    setVisibleCount(12);
     const params = new URLSearchParams(searchParams.toString());
     if (id === "all") {
       params.delete("filter");
@@ -97,7 +102,7 @@ export function TestimonialGrid({
 
   return (
     <div className="space-y-24">
-      {/* Featured Section (Only on 'all' view) — from Sanity CMS */}
+      {/* Premium Featured Section */}
       {activeCategory === "all" && featured.length > 0 && (
         <div className="space-y-12">
           <div className="flex items-center space-x-4 mb-8">
@@ -142,18 +147,22 @@ export function TestimonialGrid({
         </div>
       </div>
 
-      {/* Bridge Section (Only on 'all' view) */}
+      {/* Shared Methods bridge */}
       {activeCategory === "all" && (
-        <section className="bg-brand-teal-deep rounded-[3rem] p-12 lg:p-20 text-white relative overflow-hidden shadow-2xl">
-          <div className="relative z-10 max-w-4xl mx-auto text-center lg:text-left">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-10 tracking-tight opacity-90">
+        <section className="relative overflow-hidden bg-brand-teal-deep rounded-[3rem] p-8 lg:p-16 text-white my-16">
+          <div className="relative z-10 max-w-4xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-8 uppercase tracking-tight">
               {t("bridgeTitle")}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
               {(t.raw("bridgeItems") as string[]).map((item, i) => (
                 <div key={i} className="flex items-start space-x-4 p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
-                  <div className="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center shrink-0 group-hover:bg-brand-gold/40 transition-colors">
-                    <span className="text-brand-gold font-bold text-lg">✓</span>
+                  <div className="w-12 h-12 flex items-center justify-center shrink-0">
+                    <img 
+                      src="/images/Untitled_design-removebg-preview.webp" 
+                      alt="Icon" 
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <p className="text-lg lg:text-xl font-medium leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
                     {item}
@@ -166,7 +175,7 @@ export function TestimonialGrid({
         </section>
       )}
 
-      {/* Main Grid — All testimonials from Sanity CMS */}
+      {/* Main Grid — Migrated Static Content */}
       <div className="space-y-16">
         {activeCategory !== "all" && (
           <div className="flex items-center space-x-4 mb-4">
@@ -180,7 +189,7 @@ export function TestimonialGrid({
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           <AnimatePresence mode="popLayout">
-            {visibleItems.map((testimonial, idx: number) => (
+            {visibleItems.map((testimonial, idx) => (
               <motion.div
                 key={testimonial._id}
                 layout
