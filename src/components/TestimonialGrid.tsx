@@ -7,7 +7,6 @@ import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { TestimonialCard } from "./TestimonialCard";
 import { Button } from "./ui/button";
-import { getTopTestimonials, testimonialsData } from "@/data/testimonials";
 import { cn } from "@/lib/utils";
 import type { SanityTestimonial } from "@/lib/sanity-testimonials";
 
@@ -42,10 +41,13 @@ const SLUG_MAP: Record<string, string[]> = {
 interface TestimonialGridProps {
   initialTestimonials?: SanityTestimonial[];
   featuredTestimonials?: SanityTestimonial[];
-  imageOverrides?: { testimonialId: string; imageUrl: string }[];
+  allSanityTestimonials?: SanityTestimonial[];
 }
 
-export function TestimonialGrid({ featuredTestimonials = [], imageOverrides = [] }: TestimonialGridProps) {
+export function TestimonialGrid({ 
+  featuredTestimonials = [], 
+  allSanityTestimonials = [] 
+}: TestimonialGridProps) {
   const t = useTranslations("Testimonials");
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -56,56 +58,26 @@ export function TestimonialGrid({ featuredTestimonials = [], imageOverrides = []
   const [visibleCount, setVisibleCount] = useState(12);
 
   // Featured: always from Sanity (max 6, managed in CMS)
-  // ... (useMemo code remains same, but I'll include it for context)
   const featured = useMemo(() => {
-    const sanityCount = featuredTestimonials.length;
-    if (sanityCount >= 6) return featuredTestimonials.slice(0, 6);
-    
-    const topStatic = getTopTestimonials(6);
-    const needed = 6 - sanityCount;
-    const fillers = topStatic
-      .filter(st => !featuredTestimonials.some(ft => ft.slug === st.slug || ft.title === st.title))
-      .slice(0, needed);
-    
-    return [...featuredTestimonials, ...fillers];
+    return featuredTestimonials.slice(0, 6);
   }, [featuredTestimonials]);
 
-  // Filtered static testimonials based on active category, merged with Sanity image overrides
-  const allFilteredStatic = useMemo(() => {
-    let baseData = [];
+  // Filtered testimonials based on active category
+  const allFiltered = useMemo(() => {
+    let baseData = allSanityTestimonials.filter(st => !featured.some(ft => ft._id === st._id));
+
     if (activeCategory === "all") {
-      // For 'all', we use the full set (filtered by featured later)
-      baseData = [...testimonialsData].sort((a, b) => (b.content.length || 0) - (a.content.length || 0));
+      return baseData;
     } else {
       const slugs = SLUG_MAP[activeCategory] || [activeCategory];
-      baseData = testimonialsData
-        .filter(t => slugs.includes(t.slug))
-        .sort((a, b) => (b.content.length || 0) - (a.content.length || 0));
+      return baseData.filter(t => t.category && slugs.includes(t.category));
     }
-
-    // Merge image overrides from Sanity
-    const merged = baseData.map(testimonial => {
-      const override = imageOverrides.find(o => 
-        o.testimonialId === testimonial.id || o.testimonialId === testimonial.slug
-      );
-      if (override) {
-        return { ...testimonial, imageUrl: override.imageUrl };
-      }
-      return testimonial;
-    });
-
-    // Filter out testimonials that are already in the featured section
-    return merged.filter(st => !featured.some(ft => 
-      ('_id' in ft && ft.title === st.title) || 
-      (ft.slug === st.slug) || 
-      ((ft as any).id === st.id)
-    ));
-  }, [activeCategory, imageOverrides, featured]);
+  }, [activeCategory, allSanityTestimonials, featured]);
 
   // The actually visible subset
-  const visibleStatic = useMemo(() => {
-    return allFilteredStatic.slice(0, visibleCount);
-  }, [allFilteredStatic, visibleCount]);
+  const visibleItems = useMemo(() => {
+    return allFiltered.slice(0, visibleCount);
+  }, [allFiltered, visibleCount]);
 
   const handleCategoryChange = (id: string) => {
     setActiveCategory(id);
